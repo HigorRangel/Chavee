@@ -3,9 +3,9 @@ import "./Cargos.css";
 
 const Cargos = ({props}) => {
     return(
-        <body>
-            <h1>Cargos</h1>
-        </body>
+        <div className="conteudo">
+             <h1>Cargos</h1>
+        </div>
     )
 }
 export default Cargos;

@@ -3,9 +3,9 @@ import "./Emprestimos.css";
 
 const Emprestimos = ({props}) => {
     return(
-        <body>
+        <div className="conteudo">
             <h1>Empréstimos</h1>
-        </body>
+        </div>
     )
 }
 export default Emprestimos;

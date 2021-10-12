@@ -6,9 +6,10 @@ import PainelSombreado from "../PainelSombreado/PainelSombreado"
 
 const CadastroImobiliaria = ({props}) => {
     return(
-        <Container>
+        <div className="conteudo">
+            <Container>
             <h4 className="text-center text-secondary  mb-4">Cadastro de Imobiliária</h4>
-             <Row>
+            <Row>
                 <Col>
                 <Form className="mx-3  mb-5">
                     <Row className="mb-3">
@@ -103,7 +104,7 @@ const CadastroImobiliaria = ({props}) => {
                             </Row>
                     </div>
                      
-                }></PainelSombreado>
+                    }></PainelSombreado>
                     
                 <Row className="justify-content-end me-0">
                     <Col xs={1}>
@@ -111,13 +112,10 @@ const CadastroImobiliaria = ({props}) => {
                     </Col>
                 </Row>
                 </Form>
-
-               
-                
-
                 </Col>
              </Row>
-        </Container>
+            </Container>
+        </div>
     )
 }
 
