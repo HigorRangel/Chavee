@@ -1,10 +1,14 @@
 import React from "react";
 import "./Dashboard.css";
+import {} from "react-bootstrap"
+
 
 const Dashboard = ({props}) => {
     return(
-        <body>
-            <h1>Dashboard</h1>
+        <body>        
+            <div className="conteudo">
+                <h1>Dashboard</h1>
+            </div>
         </body>
     )
 }

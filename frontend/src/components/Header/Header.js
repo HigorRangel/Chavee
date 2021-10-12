@@ -1,25 +1,30 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
 import "./Header.css";
+import { faBriefcase, faHome, faKey, faBuilding, faClipboardList } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {Container, Navbar} from "react-bootstrap"
+import logo from "../../images/Logo.svg";
+ 
+
 
 function Header(){
     return(
-        <header className="Header">
-            <nav>
-                <ul>
-                    <li><NavLink to="/dashboard" exact>Dashboard</NavLink></li>
-                    <li><NavLink to="/chaves" exact>Chaves</NavLink></li>
-                    <li><NavLink to="/emprestimos" exact>Empréstimos</NavLink></li>
-                    <li><NavLink to="/cargos" exact>Cargos</NavLink></li>
-                    <li><NavLink to="/cadastro-imobiliaria" exact>Cadastro de Imobiliária</NavLink></li>
-                    <li><NavLink to="/cadastro-cargos" exact>Cadastro de Cargos</NavLink></li>
-                    <li><NavLink to="/cadastro-usuario" exact>Cadastro de Usuário</NavLink></li>
-
-
-                </ul>
-            </nav>
-        </header> 
+        <div>
+            <Navbar bg="primary" variant="dark">
+                <Container fluid>
+                <Navbar.Brand href="#home">
+                    <img
+                    alt=""
+                    src={logo}
+                    width="170"
+                    height="30"
+                    className="d-inline-block align-top"
+                    />{' '}
+                </Navbar.Brand>
+                </Container>
+            </Navbar>
+        </div>
     )
 }
 

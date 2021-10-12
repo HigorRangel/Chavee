@@ -4,7 +4,9 @@ import "./CadastroCargo.css";
 const CadastroCargo = ({props}) => {
     return(
         <body>
-            <h1>Cadastro de Cargo</h1>
+            <div className="conteudo">
+                <h1>Cadastro de Cargo</h1>
+            </div>
         </body>
     )
 }
