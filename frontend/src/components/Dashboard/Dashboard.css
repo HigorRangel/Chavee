@@ -1,3 +1,9 @@
 .conteudo{
     padding-left: 90px;
 }
+
+.dadosDashboard{
+    text-align: center;
+    font-weight: lighter;
+    font-size: 10rem;
+}

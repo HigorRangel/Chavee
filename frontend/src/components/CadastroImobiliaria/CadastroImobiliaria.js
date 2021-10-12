@@ -106,11 +106,11 @@ const CadastroImobiliaria = ({props}) => {
                      
                     }></PainelSombreado>
                     
-                <Row className="justify-content-end me-0">
-                    <Col xs={1}>
-                        <Button variant="primary" type="submit">Cadastrar</Button>
-                    </Col>
-                </Row>
+                    <Row className="justify-content-end me-0">
+                        <Col xs={1}>
+                            <Button variant="primary" type="submit">Cadastrar</Button>
+                        </Col>
+                    </Row>
                 </Form>
                 </Col>
              </Row>
