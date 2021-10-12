@@ -41,6 +41,34 @@ td {
     vertical-align: middle !important;
 }
 
+td:nth-child(2){
+    text-align: center;
+}
+
+.colunaStatus{
+    width: 5px;
+}
+
+
+th:first-child{
+    width: 7px;
+    padding: 0;
+
+}
+
+td:first-child{
+    width: 0px;
+    padding: 0;
+    padding-bottom: 1px;
+
+}
+
+.bordaStatus{
+    background-color: #C69090;
+    height: 100%;
+    width: 7px;
+}
+
 th{
     vertical-align: middle !important;
     color: #0B2149;
