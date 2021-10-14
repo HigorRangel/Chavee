@@ -7,7 +7,7 @@ import PainelSombreado from "../PainelSombreado/PainelSombreado"
 const CadastroImobiliaria = ({props}) => {
     return(
         <div className="conteudo">
-            <Container>
+            <Container className="mt-5">
             <h4 className="text-center text-secondary  mb-4">Cadastro de Imobiliária</h4>
             <Row>
                 <Col>

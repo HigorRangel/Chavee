@@ -10,6 +10,7 @@ import CadastroCargo from "./components/CadastroCargo/CadastroCargo";
 import CadastroUsuario from "./components/CadastroUsuario/CadastroUsuario";
 import Usuarios from "./components/Usuarios/Usuarios";
 import Imobiliarias from "./components/Imobiliarias/Imobiliarias";
+import Login from "./components/Login/Login"
 
 const routes = () => {
     return (
@@ -49,6 +50,10 @@ const routes = () => {
 
         <Route path="/imobiliarias" exact>
             <Imobiliarias/>
+        </Route>
+
+        <Route path="/login" exact>
+            <Login/>
         </Route>
 
         <Route render={()=> <div> Pagina não encontrada </div>}/>
