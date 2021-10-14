@@ -20,7 +20,7 @@ const CadastroCargo = ({props}) => {
                                             <Col xs={3}>
                                                 <Form.Group as={Col} controlId="formDescricao">
                                                 <Form.Label>Descrição</Form.Label>
-                                                <Form.Control type="name" placeholder="Ex: Vendedor" />
+                                                <Form.Control type="name" placeholder="Ex: Vendedor" required maxLength = "25"/>
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={3}>

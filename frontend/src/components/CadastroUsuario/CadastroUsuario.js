@@ -23,25 +23,25 @@ const CadastroUsuario = ({props}) => {
                                             <Col xs={2}>
                                                 <Form.Group>
                                                     <Form.Label>Primeiro Nome</Form.Label>
-                                                    <Form.Control required type="name" placeholder="Ex: João" ></Form.Control>
+                                                    <Form.Control required type="name" placeholder="Ex: João" maxLength = "25"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={3}>
                                                 <Form.Group>
                                                     <Form.Label>Nome(s) do Meio</Form.Label>
-                                                    <Form.Control required type="name" placeholder="Ex: da Silva" ></Form.Control>
+                                                    <Form.Control required type="name" placeholder="Ex: da Silva" maxLength = "25"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={2}>
                                                 <Form.Group>
                                                     <Form.Label>Último Nome</Form.Label>
-                                                    <Form.Control required type="name" placeholder="Ex: Oliveira" ></Form.Control>
+                                                    <Form.Control required type="name" placeholder="Ex: Oliveira" maxLength = "25"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={5}>
                                                 <Form.Group>
                                                     <Form.Label>E-mail</Form.Label>
-                                                    <Form.Control required type="name" placeholder="Ex: oliveira.silva@hotmail.com" ></Form.Control>
+                                                    <Form.Control required type="name" placeholder="Ex: oliveira.silva@hotmail.com" maxLength = "40"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                         </Row>
@@ -50,7 +50,7 @@ const CadastroUsuario = ({props}) => {
                                             <Col xs={3}>
                                                 <Form.Group>
                                                     <Form.Label>Contato</Form.Label>
-                                                    <Form.Control required type="name" placeholder="Ex: (19) 9 9000-0000" ></Form.Control>
+                                                    <Form.Control required type="name" placeholder="Ex: (19) 9 9000-0000" maxLength = "11"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={4}>

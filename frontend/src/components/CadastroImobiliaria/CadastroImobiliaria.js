@@ -16,28 +16,28 @@ const CadastroImobiliaria = ({props}) => {
                         <Col xs={4}>
                             <Form.Group as={Col} controlId="formNomeFantasia">
                             <Form.Label>Nome Fantasia</Form.Label>
-                            <Form.Control type="name" placeholder="Ex: Imobiliária Brasil" />
+                            <Form.Control type="name" placeholder="Ex: Imobiliária Brasil" required maxLength = "30"/>
                             </Form.Group>
                         </Col>
                         
                         <Col xs={4}>
                             <Form.Group as={Col} controlId="formRazaoSocial">
                             <Form.Label>Razão Social</Form.Label>
-                            <Form.Control type="name" placeholder="Ex: Imobiliária Brasil LTDA." />
+                            <Form.Control type="name" placeholder="Ex: Imobiliária Brasil LTDA." required maxLength = "40"/>
                             </Form.Group>
                         </Col>
 
                         <Col xs={2}>
                             <Form.Group as={Col} controlId="formCNPJ">
                             <Form.Label>CNPJ</Form.Label>
-                            <Form.Control type="name" placeholder="Ex: 96.770.573/0001-73" />
+                            <Form.Control type="name" placeholder="Ex: 96.770.573/0001-73" required maxLength = "14"/>
                             </Form.Group>
                         </Col>
 
                         <Col xs={2}>
                             <Form.Group as={Col} controlId="Nome do Cargo Administrador">
                             <Form.Label>Cargo Administrador</Form.Label>
-                            <Form.Control type="name" placeholder="Ex: Gerente de Vendas" />
+                            <Form.Control type="name" placeholder="Ex: Gerente de Vendas" required maxLength = "25"/>
                             </Form.Group>
                         </Col>
                     </Row>
@@ -49,35 +49,35 @@ const CadastroImobiliaria = ({props}) => {
                                 <Col xs={2}>
                                     <Form.Group as={Col} controlId="formPrimeiroNome">
                                     <Form.Label>Primeiro Nome</Form.Label>
-                                    <Form.Control type="name" placeholder="Ex: João" />
+                                    <Form.Control type="name" placeholder="Ex: João" maxLength = "25"/>
                                     </Form.Group>
                                 </Col>
                                 
                                 <Col xs={3}>
                                     <Form.Group as={Col} controlId="formNomeDoMeio">
                                     <Form.Label>Nome do Meio</Form.Label>
-                                    <Form.Control type="name" placeholder="Ex: da Silva" />
+                                    <Form.Control required type="name" placeholder="Ex: da Silva" maxLength = "25"/>
                                     </Form.Group>
                                 </Col>
         
                                 <Col xs={2}>
                                     <Form.Group as={Col} controlId="formUltimoNome">
                                     <Form.Label>Ultimo Nome</Form.Label>
-                                    <Form.Control type="name" placeholder="Ex: Oliveira" />
+                                    <Form.Control required type="name" placeholder="Ex: Oliveira" maxLength = "25"/>
                                     </Form.Group>
                                 </Col>
         
                                 <Col xs={3}>
                                     <Form.Group as={Col} controlId="formEmail">
                                     <Form.Label>E-mail</Form.Label>
-                                    <Form.Control type="email" placeholder="Ex: oliveira.silva@hotmail.com" />
+                                    <Form.Control required type="email" placeholder="Ex: oliveira.silva@hotmail.com" maxLength = "40"/>
                                     </Form.Group>
                                 </Col>
 
                                 <Col xs={2}>
                                     <Form.Group as={Col} controlId="formContato">
                                     <Form.Label>Contato</Form.Label>
-                                    <Form.Control type="text" placeholder="Ex: (19) 9 9000-0000" />
+                                    <Form.Control required type="text" placeholder="Ex: (19) 9 9000-0000" maxLength = "11"/>
                                     </Form.Group>
                                 </Col>
                             </Row>
@@ -86,14 +86,14 @@ const CadastroImobiliaria = ({props}) => {
                                 <Col xs={2}>
                                     <Form.Group as={Col} controlId="formSenha">
                                     <Form.Label>Senha</Form.Label>
-                                    <Form.Control type="password"/>
+                                    <Form.Control required type="password"/>
                                     </Form.Group>
                                 </Col>
                                 
                                 <Col xs={2}>
                                     <Form.Group as={Col} controlId="formConfirmaSenha">
                                     <Form.Label>Confirme a Senha</Form.Label>
-                                    <Form.Control type="passowrd"/>
+                                    <Form.Control required type="passowrd"/>
                                     </Form.Group>
                                 </Col>
                 
