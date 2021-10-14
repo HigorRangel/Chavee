@@ -28,6 +28,9 @@ thead{
     border: 2px solid #f0f0f0;
     border-radius: 15px 15px 0px 0px !important;
     background-color: transparent;
+    /* max-height: 300px !important;
+    overflow-y: scroll;
+     */
 }
 
 
@@ -73,6 +76,8 @@ th{
     vertical-align: middle !important;
     color: #0B2149;
 }
+
+
 /* 
 table tr:last-child td:last-child{
     border-top-right-radius: 20px;

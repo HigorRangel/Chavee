@@ -14,7 +14,7 @@ function Tabela({colunas, registros, colunaStatus}){
                 <Row>
                     <Col className="m-0 p-0">
                         <div className="tabela">
-                            <Table striped bordered hover size="md">
+                            <Table className="table" striped bordered hover size="md">
                                 <thead>
                                     <tr>
                                         <th className="colunaStatus"></th>
@@ -35,9 +35,9 @@ function Tabela({colunas, registros, colunaStatus}){
                                                     </td>
                                                     {
                                                         registro.map((dado) => {
-                                                            
+                                                            // let tamanhoColuna = ((colunas[parseInt(Object.keys(dado))].proporcao).toString() + "%");
                                                             return(
-                                                                <td>{dado}</td>
+                                                                <td  style={{width: (colunas[parseInt(Object.keys(dado))].proporcao).toString() + "%"}}>{Object.values(dado)}</td>
                                                             )
                                                         })
                                                     }

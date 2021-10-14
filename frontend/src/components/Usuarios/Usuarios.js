@@ -18,7 +18,7 @@ const Usuarios = ({props}) => {
                     
                 ]}
                 registros={[
-                    [0, "HIGOR RANGEL","hirgo@gmail.com","12123451234", "Administrador", "Ativo",""]
+                    [{0:0},{1:"HIGOR RANGEL"},{2:"hirgo@gmail.com"},{3:"12123451234"}, {4:"Administrador"}, {5:"Ativo"}, {6:""}]
                 ]}></Tabela>
             </div>
         </body>
