@@ -20,11 +20,10 @@ const Emprestimos = ({props}) => {
                     
                 ]}
                 registros={[
-                    [{0:0}, {1:"V345"}, {2:"485C"}, {3:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana"}, {4:"Teste"}, {5:"GABRIEL"},{6:"01/01/1969"}, {7:"01/01/1969"}, {8:"  "}],
-                    [{0:0}, {1:"V345"}, {2:"485C"}, {3:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana"}, {4:"Teste"}, {5:"GABRIEL"},{6:"01/01/1969"}, {7:"01/01/1969"}, {8:"  "}],
-                    [{0:0}, {1:"V345"}, {2:"485C"}, {3:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana"}, {4:"Teste"}, {5:"GABRIEL"},{6:"01/01/1969"}, {7:"01/01/1969"}, {8:"  "}],
-                    [{0:0}, {1:"V345"}, {2:"485C"}, {3:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana"}, {4:"Teste"}, {5:"GABRIEL"},{6:"01/01/1969"}, {7:"01/01/1969"}, {8:"  "}],
-
+                    {0:0, 1:"V345", 2:"485C", 3:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 4:"Teste", 5:"GABRIEL",6:"01/01/1969", 7:"01/01/1969", 8:"  "},
+                    {0:1, 1:"V345", 2:"485C", 3:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 4:"Teste", 5:"GABRIEL",6:"01/01/1969", 7:"01/01/1969", 8:"  "},
+                    {0:2, 1:"V345", 2:"485C", 3:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 4:"Teste", 5:"GABRIEL",6:"01/01/1969", 7:"01/01/1969", 8:"  "},
+                    {0:3, 1:"V345", 2:"485C", 3:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 4:"Teste", 5:"GABRIEL",6:"01/01/1969", 7:"01/01/1969", 8:"  "},
                 ]}></Tabela>
             </div>
         </body>

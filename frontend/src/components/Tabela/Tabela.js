@@ -8,6 +8,7 @@ import "./Tabela.css"
 
 
 function Tabela({colunas, registros, colunaStatus}){
+
     return(
             <Container fluid className="p-0">
 
@@ -26,21 +27,16 @@ function Tabela({colunas, registros, colunaStatus}){
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {registros.map((registro) => {
-                                    
+                                {Object.values(registros).map((registro) => {
                                             return(
+                                                
                                                 <tr>
                                                     <td>
-                                                        <div className="bordaStatus"></div>
-                                                    </td>
-                                                    {
-                                                        registro.map((dado) => {
-                                                            // let tamanhoColuna = ((colunas[parseInt(Object.keys(dado))].proporcao).toString() + "%");
-                                                            return(
-                                                                <td  style={{width: (colunas[parseInt(Object.keys(dado))].proporcao).toString() + "%"}}>{Object.values(dado)}</td>
-                                                            )
-                                                        })
-                                                    }
+                                                         <div className="bordaStatus"></div>
+                                                     </td>
+                                                     {Object.values(registro).map((dado,index) =>(
+                                                        <td  style={{width: (colunas[index].proporcao).toString() + "%"}}>{dado}</td>
+                                                     ))}
                                                 </tr>
                                             )
                                         })}
