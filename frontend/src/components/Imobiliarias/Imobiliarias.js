@@ -17,7 +17,7 @@ const Imobiliarias = ({props}) => {
                     
                 ]}
                 registros={[
-                    [{0:0}, {1:"IMOBILIÁRIA"},{2:"IMOBILIÁRIA"},{3:"58740076000133"}, {4:"01/01/1969"}, {5:" "}]
+                    {0:0, 1:"IMOBILIÁRIA",2:"IMOBILIÁRIA",3:"58740076000133", 4:"01/01/1969", 5:" "}
                 ]}></Tabela>
             </div>
         </body>

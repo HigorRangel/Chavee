@@ -17,10 +17,10 @@ const Chaves = ({props}) => {
                     
                 ]}
                 registros={[
-                    [{0:0}, {1:"V345"}, {2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana"}, {3:"ATIVO"}, {4:"HIGOR"}, {5:"  "}],
-                    [{0:0}, {1:"V345"}, {2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana"}, {3:"ATIVO"}, {4:"HIGOR"}, {5:"  "}],
-                    [{0:0}, {1:"V345"}, {2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana"}, {3:"ATIVO"}, {4:"HIGOR"}, {5:"  "}],
-                    [{0:0}, {1:"V345"}, {2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana"}, {3:"ATIVO"}, {4:"HIGOR"}, {5:"  "}],
+                    {0:0, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:"ATIVO", 4:"HIGOR", 5:"  "},
+                    {0:1, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:"ATIVO", 4:"HIGOR", 5:"  "},
+                    {0:2, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:"ATIVO", 4:"HIGOR", 5:"  "},
+                    {0:3, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:"ATIVO", 4:"HIGOR", 5:"  "},
 
                 ]}></Tabela>
             </div>
