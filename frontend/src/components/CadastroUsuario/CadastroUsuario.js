@@ -57,6 +57,7 @@ const CadastroUsuario = ({props}) => {
                                                 <Form.Group>
                                                     <Form.Label>Cargo</Form.Label>
                                                     <Form.Select defaultValue="--Selecione uma Opção--">
+                                                        {}
                                                         <option>--Selecione uma Opção--</option>
                                                         <option>NÍVEL 2</option>
                                                         <option>NÍVEL 3</option>
@@ -71,25 +72,6 @@ const CadastroUsuario = ({props}) => {
                                                 </InputGroup>
                                             </Col>
                                         </Row>
-                                        <SecaoSombreada elemento={
-                                            <div>
-                                                <h4 className="text-center fs-5 text-secondary  mb-4">Atividades de Login</h4>
-
-                                                <Tabela colunas={[
-                                                {numero: 0, nome: "Código", proporcao: 25},
-                                                {numero: 1, nome: "Data de Login", proporcao: 25 },
-                                                {numero: 2, nome: "Data de Logout", proporcao: 25},
-                                                {numero: 3, nome: "IP", proporcao: 25}
-                                                ]}
-                                                registros={[
-                                                    [{0:0}, {1:"05/10/2021 12:34"}, {2:"05/10/2021 12:34"}, {3:"IP: 192.168.1.2"}],
-                                                    [{0:0}, {1:"05/10/2021 12:34"}, {2:"05/10/2021 12:34"}, {3:"IP: 192.168.1.2"}],
-                                                    [{0:0}, {1:"05/10/2021 12:34"}, {2:"05/10/2021 12:34"}, {3:"IP: 192.168.1.2"}],
-                                                    [{0:0}, {1:"05/10/2021 12:34"}, {2:"05/10/2021 12:34"}, {3:"IP: 192.168.1.2"}],
-                                                    [{0:0}, {1:"05/10/2021 12:34"}, {2:"05/10/2021 12:34"}, {3:"IP: 192.168.1.2"}],
-                                                ]}></Tabela>
-                                            </div>
-                                        }></SecaoSombreada>
                                         <Row className="justify-content-end me-4">
                                             <Col xs={2}>
                                                 <Row className="ms-3">

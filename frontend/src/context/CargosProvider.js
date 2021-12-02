@@ -31,8 +31,14 @@ const CargosProvider = (props) =>{
         )
     }, [])
     
+    const deleteCargoHandler = (index) =>{
+        let newCargos = cargos.slice();
+        newCargos.splice(index,1);
+        setCargos(newCargos);
+    }
+
     return(
-        <CargosContext.Provider value={{ cargos: cargos}}>
+        <CargosContext.Provider value={{ cargos: cargos, deleteCargoHandler:deleteCargoHandler}}>
             {props.children}
         </CargosContext.Provider>
     )
