@@ -8,28 +8,28 @@ const ImobiliariasProvider = (props) =>{
         setImobiliarias(
             [
                 {
-                    codigo: 0,
+                    id: 0,
                     nome_fantasia:"IMOBILIÁRIA",
                     razao_social: "IMOBILIÁRIA",
                     CNPJ: "58740076000133",
                     data_cadastro: "01/01/1969",
                 },
                 {
-                    codigo: 1,
+                    id: 1,
                     nome_fantasia:"IMOBILIÁRIA",
                     razao_social: "IMOBILIÁRIA",
                     CNPJ: "58740076000133",
                     data_cadastro: "01/01/1969",
                 },
                 {
-                    codigo: 2,
+                    id: 2,
                     nome_fantasia:"IMOBILIÁRIA",
                     razao_social: "IMOBILIÁRIA",
                     CNPJ: "58740076000133",
                     data_cadastro: "01/01/1969",
                 },
                 {
-                    codigo: 3,
+                    id: 3,
                     nome_fantasia:"IMOBILIÁRIA",
                     razao_social: "IMOBILIÁRIA",
                     CNPJ: "58740076000133",
@@ -39,6 +39,19 @@ const ImobiliariasProvider = (props) =>{
         )
     }, [])
     
+    // const onCargoSubmit = (event) =>{
+    //     event.preventDefault();
+    //     let newCargos = [...cargos,
+    //     {
+    //       id:cargos.length +1,
+    //       descricao: event.target.cargoDescricao.value,
+    //       nivel_acesso: event.target.cargoNivelAcesso.value,
+    //     }
+    //     ];
+    //     console.log(newCargos);
+    //     setCargos(newCargos);
+    //   }
+
     return(
         <ImobiliariasContext.Provider value={{ imobiliarias: imobiliarias}}>
             {props.children}

@@ -31,14 +31,28 @@ const CargosProvider = (props) =>{
         )
     }, [])
     
+    const onCargoSubmit = (event) =>{
+        event.preventDefault();
+        let newCargos = [...cargos,
+        {
+          id:cargos.length,
+          descricao: event.target.cargoDescricao.value,
+          nivel_acesso: event.target.cargoNivelAcesso.value,
+        }
+        ];
+        console.log(newCargos);
+        setCargos(newCargos);
+      }
+
     const deleteCargoHandler = (index) =>{
         let newCargos = cargos.slice();
         newCargos.splice(index,1);
         setCargos(newCargos);
     }
 
+    
     return(
-        <CargosContext.Provider value={{ cargos: cargos, deleteCargoHandler:deleteCargoHandler}}>
+        <CargosContext.Provider value={{ cargos: cargos, onCargoSubmit:onCargoSubmit, deleteCargoHandler:deleteCargoHandler}}>
             {props.children}
         </CargosContext.Provider>
     )

@@ -8,7 +8,7 @@ const EmprestimosProvider = (props) =>{
         setEmprestimos(
             [
                 {
-                    codigo: 0,
+                    id: 0,
                     codigo_imovel:"V345",
                     codigo_chave:"485C",
                     endereco: "Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana",
@@ -18,7 +18,7 @@ const EmprestimosProvider = (props) =>{
                     data_retirada:"01/01/1969"
                 },
                 {
-                    codigo: 1,
+                    id: 1,
                     codigo_imovel:"V345",
                     codigo_chave:"485C",
                     endereco: "Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana",

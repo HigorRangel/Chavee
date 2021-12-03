@@ -38,15 +38,6 @@ CREATE TABLE usuario (
     foreign key (cod_cargo) references cargo(id)
 );
 
-CREATE TABLE acesso (
-	id int not null auto_increment,
-	ip varchar(12),
-    data_login datetime,
-    data_logout datetime,
-    
-	primary key (id)
-);
-
 create table operacao (
 	id int not null auto_increment,
     tipo_doc varchar(30),
@@ -104,4 +95,21 @@ create table operacao_chave (
     primary key (cod_operacao, cod_chave),
     foreign key (cod_operacao) references operacao (id),
     foreign key (cod_chave) references chave(id)
-)
+);
+
+DELIMITER $$
+
+CREATE PROCEDURE criaImobiliaria(nomeFantasia VARCHAR(100), razaoSocial VARCHAR(100), cnpj VARCHAR(14), nomeCargo VARCHAR(50), 
+                                    primeiroNome VARCHAR(25), nomesMeio VARCHAR(50), ultimoNome VARCHAR(25), email VARCHAR(100),
+                                    contato VARCHAR(12), senha VARCHAR(16))
+BEGIN
+    insert into imobiliaria (nome_fantasia, razao_social, cnpj, data_cadastro) 
+    values (nomeFantasia, razaoSocial, cnpj, now());
+
+    insert into cargo (descricao, nivel_acesso, cod_imobiliaria)
+    values (nomeCargo, 1, (SELECT max(id) from imobiliaria ));
+
+    insert into usuario (primeiro_nome, nomes_meio, ultimo_nome, email, senha, contato, situacao, cod_cargo)
+    values (primeiroNome, nomesMeio, ultimoNome, email, md5(senha), contato, 1, (SELECT max(id) from cargo));
+END $$
+DELIMITER ; 

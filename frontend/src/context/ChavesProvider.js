@@ -8,28 +8,28 @@ const ChavesProvider = (props) =>{
         setChaves(
             [
                 {
-                    codigo:0,
+                    id:0,
                     imovel: "V345",
                     endereco:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana",
                     situacao:"ATIVO",
                     funcionario:"HIGOR",
                 },
                 {
-                    codigo:1,
+                    id:1,
                     imovel: "V345",
                     endereco:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana",
                     situacao:"ATIVO",
                     funcionario:"HIGOR",
                 },
                 {
-                    codigo:2,
+                    id:2,
                     imovel: "V345",
                     endereco:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana",
                     situacao:"ATIVO",
                     funcionario:"HIGOR",
                 },
                 {
-                    codigo:3,
+                    id:3,
                     imovel: "V345",
                     endereco:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana",
                     situacao:"ATIVO",
