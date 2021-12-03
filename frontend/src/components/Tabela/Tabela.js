@@ -4,10 +4,13 @@ import { faBriefcase, faHome, faKey, faBuilding, faClipboardList } from "@fortaw
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {Form, Button, Container, Row, Col, Table} from "react-bootstrap"
 import "./Tabela.css"
+import BotaoDelete from "../BotaoDelete/BotaoDelete";
+import BotaoUpdate from "../BotaoUpdate/BotaoUpdate";
+import BotaoOperacao from "../BotaoOperacao/BotaoOperacao"
  
 
 
-function Tabela({colunas, registros, colunaStatus}){
+function Tabela({colunas, registros, funcaoDelete, funcaoUpdate, funcaoOperacao, colunaStatus}){
 
     return(
             <Container fluid className="p-0">
@@ -21,13 +24,18 @@ function Tabela({colunas, registros, colunaStatus}){
                                         <th className="colunaStatus"></th>
                                         {colunas.map((coluna) => {
                                             return(
-                                                <th>{coluna.nome}</th>
+                                                <th style={{textAlign:(coluna.alinhamento).toString()}}>{coluna.nome}</th>
                                             )
                                         })}
                                     </tr>
                                 </thead>
                                 <tbody>
                                 {Object.values(registros).map((registro) => {
+                                            console.log(registro);
+                                            let botaoOperacao = (funcaoOperacao ? <BotaoOperacao click={() => funcaoOperacao(registro.id)}></BotaoOperacao> : null);
+                                            let botaoUpdate = (funcaoUpdate ? <BotaoUpdate  click={() => funcaoUpdate(registro.id)}></BotaoUpdate> : null);
+                                            let botaoDelete = (funcaoDelete ? <BotaoDelete click={() => funcaoDelete(registro.id)}></BotaoDelete> : null);
+
                                             return(
                                                 
                                                 <tr>
@@ -35,8 +43,15 @@ function Tabela({colunas, registros, colunaStatus}){
                                                          <div className="bordaStatus"></div>
                                                      </td>
                                                      {Object.values(registro).map((dado,index) =>(
-                                                        <td  style={{width: (colunas[index].proporcao).toString() + "%"}}>{dado}</td>
+                                                        <td  style={{width: (colunas[index].proporcao).toString() + "%", textAlign:(colunas[index].alinhamento).toString()}}>{dado}</td>
                                                      ))}
+
+                                                     <td className="d-flex justify-content-center align-items-center">
+                                                        
+                                                        {botaoOperacao }
+                                                        {botaoUpdate }
+                                                        {botaoDelete}
+                                                     </td>
                                                 </tr>
                                             )
                                         })}

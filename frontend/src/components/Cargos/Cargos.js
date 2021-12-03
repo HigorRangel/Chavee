@@ -1,24 +1,30 @@
 import React, { useContext } from "react";
 import "./Cargos.css";
 import Tabela from "../Tabela/Tabela";
-import { CargosContext } from "../../context/CargosProvider";
+import { CargosContext, deleteCargoHandler } from "../../context/CargosProvider";
+import BotaoDelete from "../BotaoDelete/BotaoDelete";
+import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
 
 const Cargos = ({props}) => {
-    const {cargos} = useContext(CargosContext);
+    const {cargos, deleteCargoHandler} = useContext(CargosContext);
 
-    
+    console.log(cargos);
 
     return(
         <body>
             <div className="conteudo">
-                <h1>Cargos</h1>
+                <div className=" mt-3  d-flex justify-content-between align-items-center">
+                    <h4 className="text-secondary">Cargos</h4>
+                    <BotaoCadastro texto="Novo Cargo" link="www.google.com"></BotaoCadastro>
+                </div>
+                
                 <Tabela colunas={[
-                    {nome: "Código", proporcao: 25},
-                    {nome: "Nome do cargo", proporcao: 25},
-                    {nome: "Nível de acesso", proporcao: 25},
-                    {nome: "Ações", proporcao: 25},
+                    {nome: "Código", proporcao: 20, alinhamento: "center"},
+                    {nome: "Nome do cargo", proporcao: 60, alinhamento: "left"},
+                    {nome: "Nível de acesso", proporcao: 10, alinhamento: "center"},
+                    {nome: "Ações", proporcao: 10, alinhamento: "center"},
                 ]}
-                registros={cargos}></Tabela>
+                registros={cargos} funcaoDelete={deleteCargoHandler}></Tabela>
             </div>
         </body>
     )

@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -14,6 +14,7 @@ import EmprestimosProvider from "./context/EmprestimosProvider";
 import UsuariosProvider from "./context/UsuariosProvider";
 
 function App() {
+
   return (
     <BrowserRouter>
       <Header/>
@@ -24,7 +25,7 @@ function App() {
             <EmprestimosProvider>
               <UsuariosProvider>
                 <Routes/>
-                </UsuariosProvider>
+              </UsuariosProvider>
             </EmprestimosProvider>
           </ImobiliariasProvider>
         </ChavesProvider>

@@ -10,12 +10,12 @@ const Imobiliarias = ({props}) => {
             <div className="conteudo">
                 <h1>Imobiliárias</h1>
                 <Tabela colunas={[
-                    {nome: "Código", proporcao: 10},
-                    {nome: "Nome fantasia", proporcao: 30 },
-                    {nome: "Razão Social", proporcao: 30},
-                    {nome: "CNPJ", proporcao: 10},
-                    {nome: "Data de Cadastro", proporcao: 10},
-                    {nome: "Ações", proporcao: 10}
+                    {nome: "Código", proporcao: 10, alinhamento: "center"},
+                    {nome: "Nome fantasia", proporcao: 30, alinhamento: "left"},
+                    {nome: "Razão Social", proporcao: 30, alinhamento: "left"},
+                    {nome: "CNPJ", proporcao: 10, alinhamento: "center"},
+                    {nome: "Data de Cadastro", proporcao: 10, alinhamento: "center"},
+                    {nome: "Ações", proporcao: 10, alinhamento: "center"}
                 ]}
                 registros={imobiliarias}></Tabela>
             </div>
