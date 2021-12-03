@@ -38,15 +38,6 @@ CREATE TABLE usuario (
     foreign key (cod_cargo) references cargo(id)
 );
 
-CREATE TABLE acesso (
-	id int not null auto_increment,
-	ip varchar(12),
-    data_login datetime,
-    data_logout datetime,
-    
-	primary key (id)
-);
-
 create table operacao (
 	id int not null auto_increment,
     tipo_doc varchar(30),
