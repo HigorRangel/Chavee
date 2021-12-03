@@ -1,3 +1,4 @@
+let sql = "";
 module.exports = {
     setImobiliaria: function (body, connection, callback) {
         sql = `CALL criaImobiliaria ("${body.nome_fantasia}", "${body.razao_social}", "${body.cnpj}", "${body.nome_cargo}",

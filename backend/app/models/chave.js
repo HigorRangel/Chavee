@@ -1,4 +1,6 @@
 let sql = "";
+const {tratarUndefined} = require("../../utils");
+
 module.exports = {
     getChavesByImobiliariaId: function (body, connection, callback) {
         sql = `select ch.* from chave ch  inner join usuario u on ch.usuario = u.id
@@ -8,12 +10,13 @@ module.exports = {
         connection.query(sql, callback);
     },
 
-    setChave:function (body,connection,callback){
+    createChave:function (body,connection,callback){
         sql=`INSERT INTO chave (rua,bairro,cidade,estado,numero,
             complemento,situacao,finalidade,categoria_imovel,
             cod_interno,cod_imovel,observacao,usuario)
             VALUES (${body.rua}, ${body.bairro}, ${body.cidade}, ${body.estado}, ${body.numero},
             ${body.complemento}, ${body.situacao}, ${body.finalidade},${body.categoria_imovel},
             ${body.cod_interno}, ${body.cod_imovel}, ${body.observacao},${body.usuario})`
+        connection.query(sql, callback);
     }
 }

@@ -1,5 +1,5 @@
-const {connection} = require("../../utils");
-const { getChavesByImobiliariaId,setChave } = require("../models/chave");
+const {connection, tratarUndefined} = require("../../utils");
+const { getChavesByImobiliariaId,createChave } = require("../models/chave");
 
 module.exports.listarChaves = function(app,req,res){
     getChavesByImobiliariaId(req.body,connection,function(error,result){
@@ -12,7 +12,14 @@ module.exports.listarChaves = function(app,req,res){
 }
 
 module.exports.inserirChave = function(app,req,res){
-    setChave(req.body,connection,function(error,result){
+    let formattedBody = req.body;
+    for (var key in formattedBody){
+        if(formattedBody.hasOwnProperty(key)){
+            formattedBody[key] = tratarUndefined(formattedBody[key]);
+        }
+    }
+    
+    createChave(formattedBody,connection,function(error,result){
         if(!error){
             res.status(200).send(result);
         }else{
