@@ -10,5 +10,5 @@
 
     /* background-image: transparent url("../../images/fundo-login.jpg") !important; */
     background: #fff url("../../images/fundo-login.jpg") no-repeat bottom center;
-    background-size: contain;
+    background-size: cover;
 }
