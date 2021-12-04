@@ -5,11 +5,18 @@ import {Form, Button, Container, Row, Col, Table, InputGroup} from "react-bootst
 import PainelSombreado from "../PainelSombreado/PainelSombreado"
 import Tabela from "../Tabela/Tabela";
 import { EmprestimosContext } from "../../context/EmprestimosProvider";
+import { LoginContext } from "../../context/LoginProvider";
 
-
+import { useHistory } from "react-router-dom";
 
 const Dashboard = ({props}) => {
     const {emprestimos} = useContext(EmprestimosContext);
+    const { token } = useContext(LoginContext);
+    let history = useHistory();
+    if(!token){
+        history.push("/login");
+    } 
+    
     return(
         <body>        
             <div className="conteudo">

@@ -9,6 +9,14 @@ module.exports = {
         connection.query(sql,callback)
     },
 
+    getUsuarioByEmail: function (email, connection, callback) {
+        sql = `select u.*,c.nivel_acesso,i.id as id_imobiliaria from usuario u
+        inner join cargo c on u.cod_cargo = c.id
+        inner join imobiliaria i on c.cod_imobiliaria = i.id
+        where u.email = '${email}'`;
+        connection.query(sql, callback);
+    },
+
     createUsuario:function(body,connection,callback){
         sql =`INSERT INTO usuario (primeiro_nome,nomes_meio,ultimo_nome,email,
         senha,contato,situacao,cod_cargo) VALUES (${body.primeiro_nome}, ${body.nomes_meio},

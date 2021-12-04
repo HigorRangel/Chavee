@@ -12,6 +12,7 @@ import ChavesProvider from "./context/ChavesProvider";
 import ImobiliariasProvider from "./context/ImobiliariasProvider";
 import EmprestimosProvider from "./context/EmprestimosProvider";
 import UsuariosProvider from "./context/UsuariosProvider";
+import LoginProvider from "./context/LoginProvider";
 
 function App() {
 
@@ -19,17 +20,19 @@ function App() {
     <BrowserRouter>
       <Header/>
       <HeaderLateral/>
-      <CargosProvider>
-        <ChavesProvider>
-          <ImobiliariasProvider>
-            <EmprestimosProvider>
-              <UsuariosProvider>
-                <Routes/>
-              </UsuariosProvider>
-            </EmprestimosProvider>
-          </ImobiliariasProvider>
-        </ChavesProvider>
-      </CargosProvider>
+      <LoginProvider>
+        <CargosProvider>
+          <ChavesProvider>
+            <ImobiliariasProvider>
+              <EmprestimosProvider>
+                <UsuariosProvider>
+                  <Routes/>
+                </UsuariosProvider>
+              </EmprestimosProvider>
+            </ImobiliariasProvider>
+          </ChavesProvider>
+        </CargosProvider>
+      </LoginProvider>
     </BrowserRouter>
   );
 }

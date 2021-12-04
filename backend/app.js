@@ -11,6 +11,7 @@ routes.cargosListar(app);
 routes.cargoInserir(app);
 routes.cargoAtualizar(app);
 
+routes.loginUsuario(app);
 routes.usuariosListar(app);
 routes.usuarioInserir(app);
 routes.usuarioAtualizar(app);

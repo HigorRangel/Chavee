@@ -13,6 +13,7 @@ import Imobiliarias from "./components/Imobiliarias/Imobiliarias";
 import Login from "./components/Login/Login";
 
 const routes = () => {
+
     return (
       <Switch>
         <Redirect from="/" to="/dashboard" exact />
@@ -20,6 +21,10 @@ const routes = () => {
             <Dashboard/>
         </Route>
             
+        <Route path="/login" exact>
+            <Login/>
+        </Route>
+
         <Route path="/chaves" exact>
             <Chaves/>
         </Route>
@@ -52,9 +57,6 @@ const routes = () => {
             <Imobiliarias/>
         </Route>
 
-        <Route path="/login" exact>
-            <Login/>
-        </Route>
       
         <Route render={()=> <div> Pagina não encontrada </div>}/>
       </Switch>
