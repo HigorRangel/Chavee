@@ -1,59 +1,58 @@
 import React,{ useState, useEffect} from 'react';
+import validator from 'validator';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 export const ImobiliariasContext = React.createContext();
 
 const ImobiliariasProvider = (props) =>{
     const [imobiliarias,setImobiliarias] = useState({});
+    let history = useHistory();
 
     useEffect(()=>{
-        setImobiliarias(
-            [
-                {
-                    id: 0,
-                    nome_fantasia:"IMOBILIÁRIA",
-                    razao_social: "IMOBILIÁRIA",
-                    CNPJ: "58740076000133",
-                    data_cadastro: "01/01/1969",
-                },
-                {
-                    id: 1,
-                    nome_fantasia:"IMOBILIÁRIA",
-                    razao_social: "IMOBILIÁRIA",
-                    CNPJ: "58740076000133",
-                    data_cadastro: "01/01/1969",
-                },
-                {
-                    id: 2,
-                    nome_fantasia:"IMOBILIÁRIA",
-                    razao_social: "IMOBILIÁRIA",
-                    CNPJ: "58740076000133",
-                    data_cadastro: "01/01/1969",
-                },
-                {
-                    id: 3,
-                    nome_fantasia:"IMOBILIÁRIA",
-                    razao_social: "IMOBILIÁRIA",
-                    CNPJ: "58740076000133",
-                    data_cadastro: "01/01/1969",
-                },
-            ]
-        )
-    }, [])
+        axios
+            .get('http://localhost:3003/imobiliaria/listar')
+            .then((response) =>{
+                setImobiliarias(response.data);
+            })
+    });
     
-    // const onCargoSubmit = (event) =>{
-    //     event.preventDefault();
-    //     let newCargos = [...cargos,
-    //     {
-    //       id:cargos.length +1,
-    //       descricao: event.target.cargoDescricao.value,
-    //       nivel_acesso: event.target.cargoNivelAcesso.value,
-    //     }
-    //     ];
-    //     console.log(newCargos);
-    //     setCargos(newCargos);
-    //   }
+    const onImobiliariaSubmit = (event) =>{
+        event.preventDefault();
+        if(event.target.formSenha.value === event.target.formConfirmaSenha.value){
+            if(event.target.formSenha.value.length<=8){
+                if(validator.isEmail(event.target.formEmail.value)){
+                    let object = {
+                        nome_fantasia: event.target.formNomeFantasia.value,
+                        razao_social: event.target.formRazaoSocial.value,
+                        cnpj: event.target.formCNPJ.value,
+                        nome_cargo: event.target.formCargoAdministrador.value,
+                        primeiro_nome: event.target.formPrimeiroNome.value,
+                        nomes_meio: event.target.formNomeDoMeio.value,
+                        ultimo_nome: event.target.formUltimoNome.value,
+                        email: event.target.formEmail.value,
+                        contato: event.target.formContato.value,
+                        senha: event.target.formSenha.value
+                    }
+
+                    axios
+                        .post('http://localhost:3003/imobiliaria/inserir',object)
+                        .then((response) => {
+                            console.log(response.data);
+                            history.push("/imobiliarias");
+                        });
+                }else{
+                    console.log("Email inválido");
+                }
+            }else{
+                console.log("Senhas precisa ser de no máximo 8 caracteres");
+            }
+        }else{
+            console.log("Senhas não coincidem");
+        }
+    }
 
     return(
-        <ImobiliariasContext.Provider value={{ imobiliarias: imobiliarias}}>
+        <ImobiliariasContext.Provider value={{ imobiliarias: imobiliarias, onImobiliariaSubmit: onImobiliariaSubmit}}>
             {props.children}
         </ImobiliariasContext.Provider>
     )

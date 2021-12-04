@@ -1,13 +1,19 @@
 const app = require('../../config/server');
 const {check, validationResult } = require("express-validator");
 const { verifyJWT } = require("../../utils");
-const { criarImobiliaria } = require("../controllers/imobiliaria");
+const { criarImobiliaria,listarImobiliarias } = require("../controllers/imobiliaria");
 const { listarChaves, inserirChave, atualizarChave } = require("../controllers/chave");
 const { listarCargos, inserirCargo, atualizarCargo } = require('../controllers/cargo');
 const { listarUsuarios, inserirUsuario, atualizarUsuario, loginController } = require('../controllers/usuario');
 const { listarOperacoes, inserirOperacao, atualizarOperacao } = require('../controllers/operacao');
 
 module.exports = {
+    imobiliariasListar:function(){
+        app.get("/imobiliaria/listar", function(req,res){
+            listarImobiliarias(app,req,res);
+        })
+    },
+
     imobiliariaInserir:function(){
         app.post("/imobiliaria/inserir",function(req,res){
             criarImobiliaria(app,req,res);
