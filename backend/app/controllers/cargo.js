@@ -30,13 +30,3 @@ module.exports.atualizarCargo = function(app,req,res){
         }
     })
 }
-
-module.exports.deletarCargo = function(app,req,res){
-    deleteCargo(req.body,connection,function(error,result){
-        if(!error){
-            res.status(200).send(result);
-        }else{
-            res.status(400).send(error);
-        }
-    })
-}

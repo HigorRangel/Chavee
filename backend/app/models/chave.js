@@ -1,5 +1,4 @@
 let sql = "";
-const {tratarUndefined} = require("../../utils");
 
 module.exports = {
     getChavesByImobiliariaId: function (body, connection, callback) {
@@ -18,5 +17,14 @@ module.exports = {
             ${body.complemento}, ${body.situacao}, ${body.finalidade},${body.categoria_imovel},
             ${body.cod_interno}, ${body.cod_imovel}, ${body.observacao},${body.usuario})`
         connection.query(sql, callback);
+    },
+
+    updateChave:function (body,connection, callback){
+        sql=`UPDATE chave SET rua =  ${body.rua}, bairro = ${body.bairro}, cidade = ${body.cidade},
+        estado = ${body.estado}, numero = ${body.numero}, complemento = ${body.complemento}, situacao = ${body.situacao},
+        finalidade= ${body.finalidade}, categoria_imovel = ${body.categoria_imovel}, cod_interno = ${body.cod_interno},
+        cod_imovel = ${body.cod_imovel}, observacao = ${body.observacao}
+        WHERE id = ${body.id}`;
+        connection.query(sql,callback);
     }
 }

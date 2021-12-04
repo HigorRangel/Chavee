@@ -15,10 +15,6 @@ module.exports = {
     updateCargo: function (body,connection,callback){
         sql=`UPDATE cargo SET descricao = "${body.descricao}" , nivel_acesso = ${body.nivel_acesso} WHERE id = ${body.id}`;
         connection.query(sql,callback)
-    },
-
-    deleteCargo: function (body,connection,callback){
-        sql=`DELETE FROM cargo WHERE id = ${body.id}`;
-        connection.query(sql,callback)
     }
+    
 }
