@@ -11,7 +11,6 @@ function verifyJWT(req, res, next) {
       return res.status(401).send({ message: "Usuário não autenticado!" });
     }
 
-    console.log(req.id);
     req.id = decoded.id;
     next();
   });

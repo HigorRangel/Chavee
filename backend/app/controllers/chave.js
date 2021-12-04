@@ -2,7 +2,7 @@ const {connection, tratarUndefined} = require("../../utils");
 const { getChavesByImobiliariaId,createChave, updateChave } = require("../models/chave");
 
 module.exports.listarChaves = function(app,req,res){
-    getChavesByImobiliariaId(req.body,connection,function(error,result){
+    getChavesByImobiliariaId(req.params.id_imobiliaria,connection,function(error,result){
         if(!error){
             res.status(200).send(result);
         }else{
@@ -24,7 +24,7 @@ module.exports.inserirChave = function(app,req,res){
 
 module.exports.atualizarChave = function(app,req,res){
     let formattedBody = tratarUndefined(req.body);
-    updateChave(formattedBody,connection,function(error,result){
+    updateChave(req.params.id_chave,formattedBody,connection,function(error,result){
         if(!error){
             res.status(200).send(result);
         }else{

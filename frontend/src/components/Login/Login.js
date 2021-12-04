@@ -20,7 +20,6 @@ const Login = (props) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target);
     const object = {
       email: event.target[0].value,
       senha: event.target[1].value,

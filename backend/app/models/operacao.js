@@ -3,12 +3,12 @@ const { connect } = require("../../config/server");
 let sql = "";
 
 module.exports = {
-    getOperacoesByImobiliariaId:function (body,connection,callback){
+    getOperacoesByImobiliariaId:function (id_imobiliaria,connection,callback){
         sql =`select o.* from operacao o 
         inner join usuario u on o.cod_usuario = u.id
         inner join cargo c on u.cod_cargo = c.id
         inner join imobiliaria i on c.cod_imobiliaria = i.id
-        where i.id = ${body.cod_imobiliaria}`;
+        where i.id = ${id_imobiliaria}`;
         connection.query(sql,callback);
     },
 
@@ -20,10 +20,10 @@ module.exports = {
         connection.query(sql,callback);
     },
 
-    updateOperacao:function(body,connection,callback){
+    updateOperacao:function(id_operacao,body,connection,callback){
         sql = `UPDATE operacao SET descricao_devolucao = ${body.descricao_devolucao},
         data_devolucao = now(), situacao = 0
-        WHERE id = ${body.id}`;
+        WHERE id = ${id_operacao}`;
         connection.query(sql,callback);
     }
 

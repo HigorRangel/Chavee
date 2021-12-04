@@ -15,7 +15,7 @@ module.exports = {
     },
 
     chavesListar:function(){
-        app.get("/chave/listar",function(req,res){
+        app.get("/chave/listar/:id_imobiliaria",function(req,res){
             listarChaves(app,req,res);
         })
     },
@@ -27,13 +27,13 @@ module.exports = {
     },
 
     chaveAtualizar:function(){
-        app.put("/chave/atualizar",verifyJWT,function(req,res){
+        app.put("/chave/atualizar/:id_chave",verifyJWT,function(req,res){
             atualizarChave(app,req,res);
         })
     },
 
     cargosListar:function(){
-        app.get("/cargo/listar",function(req,res){
+        app.get("/cargo/listar/:id_imobiliaria",function(req,res){
             listarCargos(app,req,res);
         })
     },
@@ -45,13 +45,13 @@ module.exports = {
     },
 
     cargoAtualizar:function(){
-        app.put("/cargo/atualizar",verifyJWT,function (req,res) {
+        app.put("/cargo/atualizar/:id_cargo",verifyJWT,function (req,res) {
             atualizarCargo(app,req,res);
         })
     },
 
     usuariosListar:function(){
-        app.get("/usuario/listar",function(req,res){
+        app.get("/usuario/listar/:id_imobiliaria",function(req,res){
             listarUsuarios(app,req,res);
         })
     },
@@ -63,7 +63,7 @@ module.exports = {
     },
 
     usuarioAtualizar:function(){
-        app.put("/usuario/atualizar",verifyJWT,function (req,res) {
+        app.put("/usuario/atualizar/:id_usuario",verifyJWT,function (req,res) {
             atualizarUsuario(app,req,res);
         })
     },
@@ -78,7 +78,7 @@ module.exports = {
       },
 
     operacoesListar:function(){
-        app.get("/operacao/listar",function(req,res){
+        app.get("/operacao/listar/:id_imobiliaria",function(req,res){
             listarOperacoes(app,req,res);
         })
     },
@@ -90,7 +90,7 @@ module.exports = {
     },
 
     operacaoAtualizar:function(){
-        app.put("/operacao/atualizar",verifyJWT,function (req,res) {
+        app.put("/operacao/atualizar/:id_operacao",verifyJWT,function (req,res) {
             atualizarOperacao(app,req,res);
         })
     },

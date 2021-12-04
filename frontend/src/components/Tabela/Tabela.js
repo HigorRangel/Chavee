@@ -31,10 +31,9 @@ function Tabela({colunas, registros, funcaoDelete, funcaoUpdate, funcaoOperacao,
                                 </thead>
                                 <tbody>
                                 {Object.values(registros).map((registro) => {
-                                            console.log(registro);
                                             let botaoOperacao = (funcaoOperacao ? <BotaoOperacao click={() => funcaoOperacao(registro.id)}></BotaoOperacao> : null);
                                             let botaoUpdate = (funcaoUpdate ? <BotaoUpdate  click={() => funcaoUpdate(registro.id)}></BotaoUpdate> : null);
-                                            let botaoDelete = (funcaoDelete ? <BotaoDelete click={() => funcaoDelete(registro.id)}></BotaoDelete> : null);
+                                            let botaoDelete = (funcaoDelete ? <BotaoDelete click={() => funcaoDelete(registro)}></BotaoDelete> : null);
 
                                             return(
                                                 

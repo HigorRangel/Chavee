@@ -4,7 +4,7 @@ const md5 = require('md5');
 const jwt = require("jsonwebtoken");
 
 module.exports.listarUsuarios = function(app,req,res){
-    getUsuariosByImobiliariaId(req.body,connection,function(error,result){
+    getUsuariosByImobiliariaId(req.params.id_imobiliaria,connection,function(error,result){
         if(!error){
             res.status(200).send(result);
         }else{
@@ -17,7 +17,6 @@ module.exports.inserirUsuario = function(app,req,res){
     let formattedBody = tratarUndefined(req.body);
     createUsuario(formattedBody,connection,function(error,result){
         if(!error){
-            console.log(result);
             res.status(200).send(result);
         }else{
             res.status(400).send(error);
@@ -27,7 +26,7 @@ module.exports.inserirUsuario = function(app,req,res){
 
 module.exports.atualizarUsuario = function(app,req,res){
     let formattedBody = tratarUndefined(req.body);
-    updateUsuario(formattedBody,connection,function(error,result){
+    updateUsuario(req.params.id_usuario,formattedBody,connection,function(error,result){
         if(!error){
             res.status(200).send(result);
         }else{
