@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React,{useContext} from "react";
 import "./CadastroImobiliaria.css";
 import {Form, Button, Container, Row, Col} from "react-bootstrap"
 import PainelSombreado from "../PainelSombreado/PainelSombreado"
 import { ImobiliariasContext } from "../../context/ImobiliariasProvider";
+import { useParams } from "react-router-dom";
 
 const CadastroImobiliaria = ({props}) => {
-    const {onImobiliariaSubmit} = useContext(ImobiliariasContext);
+  const {onImobiliariaSubmit} = useContext(ImobiliariasContext);
+    const {imobiliarias} = useContext(ImobiliariasContext);
+    const {id} = useParams();
+    console.log(imobiliarias);
+    let imobiliaria = Object.values(imobiliarias).find(imobiliaria => imobiliaria.id.toString() === id.toString());
 
     return(
         <div className="conteudo">
@@ -18,21 +23,21 @@ const CadastroImobiliaria = ({props}) => {
                         <Col xs={4}>
                             <Form.Group as={Col} controlId="formNomeFantasia">
                             <Form.Label>Nome Fantasia</Form.Label>
-                            <Form.Control type="name" placeholder="Ex: Imobiliária Brasil" required maxLength = "30"/>
+                            <Form.Control type="name" placeholder="Ex: Imobiliária Brasil" defaultValue={imobiliaria ? imobiliaria.nome_fantasia : null}  required maxLength = "30"/>
                             </Form.Group>
                         </Col>
                         
                         <Col xs={4}>
                             <Form.Group as={Col} controlId="formRazaoSocial">
                             <Form.Label>Razão Social</Form.Label>
-                            <Form.Control type="name" placeholder="Ex: Imobiliária Brasil LTDA." required maxLength = "40"/>
+                            <Form.Control type="name" placeholder="Ex: Imobiliária Brasil LTDA." defaultValue={imobiliaria ? imobiliaria.razao_social : null} required maxLength = "40"/>
                             </Form.Group>
                         </Col>
 
                         <Col xs={2}>
                             <Form.Group as={Col} controlId="formCNPJ">
                             <Form.Label>CNPJ</Form.Label>
-                            <Form.Control type="name" placeholder="Ex: 96.770.573/0001-73" required maxLength = "14"/>
+                            <Form.Control type="name" placeholder="Ex: 96.770.573/0001-73" defaultValue={imobiliaria ? imobiliaria.cnpj : null} required maxLength = "14"/>
                             </Form.Group>
                         </Col>
 

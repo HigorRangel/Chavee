@@ -10,8 +10,10 @@ import BotaoOperacao from "../BotaoOperacao/BotaoOperacao"
  
 
 
-function Tabela({colunas, registros, funcaoDelete, funcaoUpdate, funcaoOperacao, colunaStatus}){
-
+function Tabela({colunas, registros, funcaoDelete, linkUpdate, linkOperacao}){
+    let valoresColunas = Object.values(colunas);
+    valoresColunas = valoresColunas.filter(x => x.nome === "Situação");
+    let colunaStatus = valoresColunas.length !== 0;
     return(
             <Container fluid className="p-0">
 
@@ -21,7 +23,7 @@ function Tabela({colunas, registros, funcaoDelete, funcaoUpdate, funcaoOperacao,
                             <Table className="table" striped bordered hover size="md">
                                 <thead>
                                     <tr>
-                                        <th className="colunaStatus"></th>
+                                        {colunaStatus ? <th className="colunaStatus"></th> : null}
                                         {colunas.map((coluna) => {
                                             return(
                                                 <th style={{textAlign:(coluna.alinhamento)}}>{coluna.nome}</th>
@@ -31,19 +33,22 @@ function Tabela({colunas, registros, funcaoDelete, funcaoUpdate, funcaoOperacao,
                                 </thead>
                                 <tbody>
                                 {Object.values(registros).map((registro) => {
-                                            let botaoOperacao = (funcaoOperacao ? <BotaoOperacao click={() => funcaoOperacao(registro.id)}></BotaoOperacao> : null);
-                                            let botaoUpdate = (funcaoUpdate ? <BotaoUpdate  click={() => funcaoUpdate(registro.id)}></BotaoUpdate> : null);
+                                            let botaoOperacao = (linkOperacao ? <BotaoOperacao link={linkOperacao + registro.id}></BotaoOperacao> : null);
+                                            let botaoUpdate = (linkUpdate ? <BotaoUpdate  link={linkUpdate + registro.id}></BotaoUpdate> : null);
                                             let botaoDelete = (funcaoDelete ? <BotaoDelete click={() => funcaoDelete(registro)}></BotaoDelete> : null);
-
+                                            let bordaStatus = (Object.keys(registro).includes("situacao") ? <td><div className={(registro["situacao"] === 1? "bordaStatusTrue" : "bordaStatusFalse")}></div></td> : null);
                                             return(
                                                 
                                                 <tr>
-                                                    <td>
-                                                         <div className="bordaStatus"></div>
-                                                     </td>
-                                                     {Object.values(registro).map((dado,index) =>(
-                                                        <td  style={{width: (colunas[index].proporcao).toString() + "%", textAlign:(colunas[index].alinhamento).toString()}}>{dado}</td>
-                                                     ))}
+                                                    {bordaStatus}
+                                                     {Object.values(registro).map((dado,index) =>{
+                                                         return(
+                                                            <td  style={{width: (colunas[index].proporcao).toString() + "%", textAlign:(colunas[index].alinhamento).toString()}}>{
+                                                                dado
+                                                            }</td>
+                                                         )
+                                                        
+                                                    })}
 
                                                      <td className="d-flex justify-content-center align-items-center">
                                                         

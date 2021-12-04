@@ -18,7 +18,7 @@ const Usuarios = ({props}) => {
                     {nome: "Nome completo", proporcao: 10, alinhamento: "left" },
                     {nome: "Email", proporcao: 10, alinhamento: "left"},
                     {nome: "Contato", proporcao: 10, alinhamento: "center"},
-                    {nome: "Cargo", proporcao: 10, alinhamento: "left"},
+                    {nome: "Cargo", proporcao: 10, alinhamento: "center"},
                     {nome: "Situação", proporcao: 10, alinhamento: "left"},
                     {nome: "Ações", proporcao: 10, alinhamento: "center"}
                     
