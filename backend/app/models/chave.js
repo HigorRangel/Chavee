@@ -12,10 +12,11 @@ module.exports = {
     createChave:function (body,connection,callback){
         sql=`INSERT INTO chave (rua,bairro,cidade,estado,numero,
             complemento,situacao,finalidade,categoria_imovel,
-            cod_interno,cod_imovel,observacao,usuario)
+            cod_interno,cod_imovel,observacao,usuario,proprietario,contato)
             VALUES (${body.rua}, ${body.bairro}, ${body.cidade}, ${body.estado}, ${body.numero},
             ${body.complemento}, ${body.situacao}, ${body.finalidade},${body.categoria_imovel},
-            ${body.cod_interno}, ${body.cod_imovel}, ${body.observacao},${body.usuario})`
+            ${body.cod_interno}, ${body.cod_imovel}, ${body.observacao},${body.usuario},
+            ${body.proprietario},${body.contato})`
         connection.query(sql, callback);
     },
 
@@ -23,7 +24,7 @@ module.exports = {
         sql=`UPDATE chave SET rua =  ${body.rua}, bairro = ${body.bairro}, cidade = ${body.cidade},
         estado = ${body.estado}, numero = ${body.numero}, complemento = ${body.complemento}, situacao = ${body.situacao},
         finalidade= ${body.finalidade}, categoria_imovel = ${body.categoria_imovel}, cod_interno = ${body.cod_interno},
-        cod_imovel = ${body.cod_imovel}, observacao = ${body.observacao}
+        cod_imovel = ${body.cod_imovel}, observacao = ${body.observacao}, proprietario = ${body.proprietario}, contato = ${body.contato}
         WHERE id = ${id_chave}`;
         connection.query(sql,callback);
     }
