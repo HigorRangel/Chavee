@@ -5,8 +5,12 @@ routes.imobiliariaInserir(app);
 
 routes.chavesListar(app);
 routes.chaveInserir(app);
+routes.chaveAtualizar(app);
 
 routes.cargosListar(app);
 routes.cargoInserir(app);
 routes.cargoAtualizar(app);
-routes.cargoDeletar(app);
+
+routes.usuariosListar(app);
+routes.usuarioInserir(app);
+routes.usuarioAtualizar(app);
