@@ -38,20 +38,6 @@ CREATE TABLE usuario (
     foreign key (cod_cargo) references cargo(id)
 );
 
-create table operacao (
-	id int not null auto_increment,
-    tipo_doc varchar(30),
-    documento varchar(20),
-	nome_cliente varchar(100),
-    data_retirada datetime default now(),
-	descricao_retirada varchar(256) ,
-	entrega_prevista datetime,
-	descricao_devolucao varchar (256),
-	data_devolucao datetime,
-    
-    primary key (id)
-);
-
 create table chave(
 	id int not null auto_increment,
     rua varchar(100) not null,
@@ -72,13 +58,23 @@ create table chave(
     foreign key (usuario) references usuario (id)
 );
 
-create table operacao_chave (
-	cod_operacao int not null,
+create table operacao (
+	id int not null auto_increment,
+    tipo_doc varchar(30),
+    documento varchar(20),
+	nome_cliente varchar(100),
+    data_retirada datetime default now(),
+	descricao_retirada varchar(256) ,
+	entrega_prevista datetime,
+	descricao_devolucao varchar (256),
+	data_devolucao datetime,
     cod_chave int not null,
+    cod_usuario int not null,
+    situacao int not null default 1,
     
-    primary key (cod_operacao, cod_chave),
-    foreign key (cod_operacao) references operacao (id),
-    foreign key (cod_chave) references chave(id)
+    primary key (id),
+    foreign key(cod_chave) references chave(id),
+    foreign key(cod_usuario) references usuario(id)
 );
 
 DELIMITER $$
