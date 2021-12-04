@@ -1,8 +1,8 @@
 const {connection, tratarUndefined} = require("../../utils");
-const { getChavesByImobiliariaId,createChave, updateChave } = require("../models/chave");
+const { getOperacoesByImobiliariaId,createOperacao,updateOperacao } = require("../models/operacao");
 
-module.exports.listarChaves = function(app,req,res){
-    getChavesByImobiliariaId(req.params.id_imobiliaria,connection,function(error,result){
+module.exports.listarOperacoes = function(app,req,res){
+    getOperacoesByImobiliariaId(req.params.id_imobiliaria,connection,function(error,result){
         if(!error){
             res.status(200).send(result);
         }else{
@@ -11,9 +11,9 @@ module.exports.listarChaves = function(app,req,res){
     })
 }
 
-module.exports.inserirChave = function(app,req,res){
+module.exports.inserirOperacao = function(app,req,res){
     let formattedBody = tratarUndefined(req.body);
-    createChave(formattedBody,connection,function(error,result){
+    createOperacao(formattedBody,connection,function(error,result){
         if(!error){
             res.status(200).send(result);
         }else{
@@ -22,9 +22,9 @@ module.exports.inserirChave = function(app,req,res){
     })
 }
 
-module.exports.atualizarChave = function(app,req,res){
+module.exports.atualizarOperacao = function(app,req,res){
     let formattedBody = tratarUndefined(req.body);
-    updateChave(req.params.id_chave,formattedBody,connection,function(error,result){
+    updateOperacao(req.params.id_operacao,formattedBody,connection,function(error,result){
         if(!error){
             res.status(200).send(result);
         }else{

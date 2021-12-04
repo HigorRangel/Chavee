@@ -5,11 +5,9 @@ import {Form, Button, Container, Row, Col, Table, InputGroup} from "react-bootst
 import PainelSombreado from "../PainelSombreado/PainelSombreado"
 import Tabela from "../Tabela/Tabela";
 import { EmprestimosContext } from "../../context/EmprestimosProvider";
-
-
-
 const Dashboard = ({props}) => {
     const {emprestimos} = useContext(EmprestimosContext);
+    
     return(
         <body>        
             <div className="conteudo">

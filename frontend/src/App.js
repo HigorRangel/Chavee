@@ -12,24 +12,27 @@ import ChavesProvider from "./context/ChavesProvider";
 import ImobiliariasProvider from "./context/ImobiliariasProvider";
 import EmprestimosProvider from "./context/EmprestimosProvider";
 import UsuariosProvider from "./context/UsuariosProvider";
+import LoginProvider from "./context/LoginProvider";
 
 function App() {
 
   return (
     <BrowserRouter>
-      <Header/>
-      <HeaderLateral/>
-      <CargosProvider>
-        <ChavesProvider>
-          <ImobiliariasProvider>
-            <EmprestimosProvider>
-              <UsuariosProvider>
-                <Routes/>
-              </UsuariosProvider>
-            </EmprestimosProvider>
-          </ImobiliariasProvider>
-        </ChavesProvider>
-      </CargosProvider>
+      <LoginProvider>
+        <UsuariosProvider>
+          <CargosProvider>
+            <ChavesProvider>
+              <ImobiliariasProvider>
+                <EmprestimosProvider>
+                  <Header/>
+                  <HeaderLateral/>
+                  <Routes/>
+                </EmprestimosProvider>
+              </ImobiliariasProvider>
+            </ChavesProvider>
+          </CargosProvider>
+        </UsuariosProvider>
+      </LoginProvider>
     </BrowserRouter>
   );
 }

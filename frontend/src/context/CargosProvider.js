@@ -1,53 +1,63 @@
-import React,{ useState, useEffect} from 'react';
+import React,{ useState, useEffect, useContext} from 'react';
+import axios from 'axios';
+import { LoginContext } from './LoginProvider';
 export const CargosContext = React.createContext();
 
 const CargosProvider = (props) =>{
     const [cargos,setCargos] = useState({});
+    const {token} = useContext(LoginContext);
+
+    let id = "";
+    if(token){
+        id = token.id_imobiliaria
+    }
 
     useEffect(()=>{
-        setCargos(
-            [
-                {
-                    id:0,
-                    descricao: "Administrador",
-                    nivel_acesso: 1
-                },
-                {
-                    id:1,
-                    descricao: "Vendedor",
-                    nivel_acesso: 2
-                },
-                {
-                    id:2,
-                    descricao: "Funcionário",
-                    nivel_acesso: 3
-                },
-                {
-                    id:3,
-                    descricao: "Visitante",
-                    nivel_acesso: 4
-                }
-            ]
-        )
-    }, [])
+        axios
+            .get('http://localhost:3003/cargo/listar/'+id)
+            .then((response) => {
+                setCargos(response.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    });
     
     const onCargoSubmit = (event) =>{
         event.preventDefault();
-        let newCargos = [...cargos,
-        {
-          id:cargos.length,
+        let object = {
           descricao: event.target.cargoDescricao.value,
           nivel_acesso: event.target.cargoNivelAcesso.value,
+          id_imobiliaria:id
         }
-        ];
-        console.log(newCargos);
-        setCargos(newCargos);
+
+        axios
+            .post("http://localhost:3003/cargo/inserir",object,{
+                headers: {
+                  Authorization: token.token,
+                }
+            })
+            .then((response) => {
+                console.log(response.data);
+            });
       }
 
-    const deleteCargoHandler = (index) =>{
-        let newCargos = cargos.slice();
-        newCargos.splice(index,1);
-        setCargos(newCargos);
+    
+    const deleteCargoHandler = (cargo) =>{
+        let object = {
+            descricao:cargo.descricao,
+            nivel_acesso:cargo.nivel_acesso,
+            situacao:0
+        }
+        axios
+            .put("http://localhost:3003/cargo/atualizar/"+cargo.id,object,{
+                headers: {
+                  Authorization: token.token,
+                }
+            })
+            .then((response) => {
+            console.log(response.data);
+            });
     }
 
     
