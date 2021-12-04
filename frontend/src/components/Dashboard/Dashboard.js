@@ -11,6 +11,7 @@ import { useHistory } from "react-router-dom";
 
 const Dashboard = ({props}) => {
     const {emprestimos} = useContext(EmprestimosContext);
+
     const { token } = useContext(LoginContext);
     let history = useHistory();
     if(!token){

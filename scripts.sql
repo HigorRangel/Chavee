@@ -7,7 +7,7 @@ CREATE TABLE imobiliaria (
     nome_fantasia VARCHAR(100) NOT NULL,
 	razao_social VARCHAR(100) NOT NULL,
     cnpj varchar(14),
-    data_cadastro datetime not null,
+    data_cadastro datetime not null default now(),
     
     primary key(id)
 );
@@ -18,6 +18,7 @@ CREATE TABLE cargo (
     descricao varchar(50) not null,
     nivel_acesso int not null, 
     cod_imobiliaria int not null,
+    situacao int not null default 1,
     
     primary key(id),
     foreign key (cod_imobiliaria) references imobiliaria(id)
@@ -31,7 +32,7 @@ CREATE TABLE usuario (
     email varchar(100) not null,
     senha char(32) not null,
     contato varchar(12),
-    situacao int not null,
+    situacao int not null default 1,
     cod_cargo int not null,
     
     primary key (id),
@@ -46,7 +47,7 @@ create table chave(
     estado varchar(2) not null,
     numero varchar(15),
     complemento varchar (50),
-    situacao int not null,
+    situacao int not null default 1,
     finalidade int not null,
     categoria_imovel int not null,
     cod_interno varchar(10),
@@ -83,8 +84,8 @@ CREATE PROCEDURE criaImobiliaria(nomeFantasia VARCHAR(100), razaoSocial VARCHAR(
                                     primeiroNome VARCHAR(25), nomesMeio VARCHAR(50), ultimoNome VARCHAR(25), email VARCHAR(100),
                                     contato VARCHAR(12), senha VARCHAR(16))
 BEGIN
-    insert into imobiliaria (nome_fantasia, razao_social, cnpj, data_cadastro) 
-    values (nomeFantasia, razaoSocial, cnpj, now());
+    insert into imobiliaria (nome_fantasia, razao_social, cnpj) 
+    values (nomeFantasia, razaoSocial, cnpj);
 
     insert into cargo (descricao, nivel_acesso, cod_imobiliaria)
     values (nomeCargo, 1, (SELECT max(id) from imobiliaria ));

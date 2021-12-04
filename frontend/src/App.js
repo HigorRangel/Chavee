@@ -18,20 +18,20 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header/>
-      <HeaderLateral/>
       <LoginProvider>
-        <CargosProvider>
-          <ChavesProvider>
-            <ImobiliariasProvider>
-              <EmprestimosProvider>
-                <UsuariosProvider>
+        <UsuariosProvider>
+          <CargosProvider>
+            <ChavesProvider>
+              <ImobiliariasProvider>
+                <EmprestimosProvider>
+                  <Header/>
+                  <HeaderLateral/>
                   <Routes/>
-                </UsuariosProvider>
-              </EmprestimosProvider>
-            </ImobiliariasProvider>
-          </ChavesProvider>
-        </CargosProvider>
+                </EmprestimosProvider>
+              </ImobiliariasProvider>
+            </ChavesProvider>
+          </CargosProvider>
+        </UsuariosProvider>
       </LoginProvider>
     </BrowserRouter>
   );
