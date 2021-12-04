@@ -3,6 +3,9 @@ $secondary: #A5A5A5;
 
 $btn-border-radius: 10px;
 
+$input-btn-focus-box-shadow: none;
+$input-btn-focus-width: 0;
+
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";

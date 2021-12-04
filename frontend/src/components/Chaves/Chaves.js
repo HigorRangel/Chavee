@@ -2,13 +2,18 @@ import React, { useContext } from "react";
 import "./Chaves.css";
 import Tabela from "../Tabela/Tabela"
 import { ChavesContext } from "../../context/ChavesProvider";
+import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
+
 
 const Chaves = ({props}) => {
     const {chaves} = useContext(ChavesContext);
     return(
         <body>
             <div className="conteudo">
-                <h1>Chaves</h1>
+                <div className=" mt-3  d-flex justify-content-between align-items-center">
+                    <h4 className="text-secondary">Chaves</h4>
+                    <BotaoCadastro texto="Nova Chave" link="/cadastro-chave"></BotaoCadastro>
+                </div>
                 <Tabela colunas={[
                     {nome: "Código", proporcao: 10, alinhamento: "center"},
                     {nome: "Imóvel", proporcao: 10, alinhamento: "center" },

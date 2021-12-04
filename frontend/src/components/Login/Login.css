@@ -1,3 +1,5 @@
+
+
 .body-login{
     width: 100vw;
     height: 100vh;
@@ -12,3 +14,24 @@
     background: #fff url("../../images/fundo-login.jpg") no-repeat bottom center;
     background-size: cover;
 }
+
+
+#divFundoLogin {
+
+    border-radius: 15px;
+}
+
+.campoLogin {
+
+    background-color: transparent !important;
+    border: none;
+    border-bottom: 2px solid #0B2149;
+    color: #0B2149 !important;
+    font-weight: bold;
+}
+
+.campoLogin::placeholder {
+    color: #0B2149;
+    font-weight: 500;
+}
+

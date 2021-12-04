@@ -2,13 +2,17 @@ import React, { useContext } from "react";
 import "./Emprestimos.css";
 import Tabela from "../Tabela/Tabela"
 import { EmprestimosContext } from "../../context/EmprestimosProvider";
+import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
+
 
 const Emprestimos = ({props}) => {
     const {emprestimos} = useContext(EmprestimosContext);
     return(
         <body>
             <div className="conteudo">
-                <h1>Empréstimos</h1>
+            <div className=" mt-3  d-flex justify-content-between align-items-center">
+                    <h4 className="text-secondary">Empréstimos</h4>
+                </div>
                 <Tabela colunas={[
                     {nome: "Código", proporcao: 10, alinhamento: "center"},
                     {nome: "Código do Imóvel", proporcao: 10 , alinhamento: "center"},

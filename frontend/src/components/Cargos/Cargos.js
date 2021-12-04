@@ -15,7 +15,7 @@ const Cargos = ({props}) => {
             <div className="conteudo">
                 <div className=" mt-3  d-flex justify-content-between align-items-center">
                     <h4 className="text-secondary">Cargos</h4>
-                    <BotaoCadastro texto="Novo Cargo" link="www.google.com"></BotaoCadastro>
+                    <BotaoCadastro texto="Novo Cargo" link="/cadastro-cargo"></BotaoCadastro>
                 </div>
                 
                 <Tabela colunas={[
