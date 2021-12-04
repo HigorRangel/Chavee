@@ -3,6 +3,7 @@ const { criarImobiliaria } = require("../controllers/imobiliaria");
 const { listarChaves, inserirChave, atualizarChave } = require("../controllers/chave");
 const { listarCargos, inserirCargo, atualizarCargo } = require('../controllers/cargo');
 const { listarUsuarios, inserirUsuario, atualizarUsuario } = require('../controllers/usuario');
+const { listarOperacoes, inserirOperacao, atualizarOperacao } = require('../controllers/operacao');
 
 module.exports = {
     imobiliariaInserir:function(){
@@ -62,6 +63,24 @@ module.exports = {
     usuarioAtualizar:function(){
         app.put("/usuario/atualizar",function (req,res) {
             atualizarUsuario(app,req,res);
+        })
+    },
+
+    operacoesListar:function(){
+        app.get("/operacao/listar",function(req,res){
+            listarOperacoes(app,req,res);
+        })
+    },
+
+    operacaoInserir:function(){
+        app.post("/operacao/inserir",function(req,res){
+            inserirOperacao(app,req,res);
+        })
+    },
+
+    operacaoAtualizar:function(){
+        app.put("/operacao/atualizar",function (req,res) {
+            atualizarOperacao(app,req,res);
         })
     },
 }

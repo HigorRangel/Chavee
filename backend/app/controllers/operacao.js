@@ -1,8 +1,8 @@
 const {connection, tratarUndefined} = require("../../utils");
-const {getUsuariosByImobiliariaId,createUsuario,updateUsuario} = require("../models/usuario");
+const { getOperacoesByImobiliariaId,createOperacao,updateOperacao } = require("../models/operacao");
 
-module.exports.listarUsuarios = function(app,req,res){
-    getUsuariosByImobiliariaId(req.body,connection,function(error,result){
+module.exports.listarOperacoes = function(app,req,res){
+    getOperacoesByImobiliariaId(req.body,connection,function(error,result){
         if(!error){
             res.status(200).send(result);
         }else{
@@ -11,9 +11,9 @@ module.exports.listarUsuarios = function(app,req,res){
     })
 }
 
-module.exports.inserirUsuario = function(app,req,res){
+module.exports.inserirOperacao = function(app,req,res){
     let formattedBody = tratarUndefined(req.body);
-    createUsuario(formattedBody,connection,function(error,result){
+    createOperacao(formattedBody,connection,function(error,result){
         if(!error){
             res.status(200).send(result);
         }else{
@@ -22,9 +22,9 @@ module.exports.inserirUsuario = function(app,req,res){
     })
 }
 
-module.exports.atualizarUsuario = function(app,req,res){
+module.exports.atualizarOperacao = function(app,req,res){
     let formattedBody = tratarUndefined(req.body);
-    updateUsuario(formattedBody,connection,function(error,result){
+    updateOperacao(formattedBody,connection,function(error,result){
         if(!error){
             res.status(200).send(result);
         }else{
