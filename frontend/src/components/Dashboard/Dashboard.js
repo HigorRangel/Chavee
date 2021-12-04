@@ -45,12 +45,12 @@ const Dashboard = ({props}) => {
                         <h4 className="text-center text-secondary mt-5  mb-3">Empréstimos Ativos</h4>
 
                         <Tabela colunas={[
-                            {nome: "Código", proporcao: 10},
-                            {nome: "Imóvel", proporcao: 10 },
-                            {nome: "Endereço", proporcao: 35},
-                            {nome: "Situação", proporcao: 10},
-                            {nome: "Funcionário", proporcao: 25},
-                            {nome: "Ações",  proporcao: 10}
+                            {nome: "Código", proporcao: 10, alinhamento: "center"},
+                            {nome: "Imóvel", proporcao: 10, alinhamento: "left" },
+                            {nome: "Endereço", proporcao: 35, alinhamento: "left"},
+                            {nome: "Situação", proporcao: 10, alinhamento: "center"},
+                            {nome: "Funcionário", proporcao: 25, alinhamento: "center"},
+                            {nome: "Ações",  proporcao: 10, alinhamento: "center"}
                             
                         ]}
                         registros={[

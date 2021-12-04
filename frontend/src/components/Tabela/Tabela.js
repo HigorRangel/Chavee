@@ -24,7 +24,7 @@ function Tabela({colunas, registros, funcaoDelete, funcaoUpdate, funcaoOperacao,
                                         <th className="colunaStatus"></th>
                                         {colunas.map((coluna) => {
                                             return(
-                                                <th style={{textAlign:(coluna.alinhamento).toString()}}>{coluna.nome}</th>
+                                                <th style={{textAlign:(coluna.alinhamento)}}>{coluna.nome}</th>
                                             )
                                         })}
                                     </tr>

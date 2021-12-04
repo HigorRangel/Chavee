@@ -2,13 +2,17 @@ import React, { useContext } from "react";
 import "./Imobiliarias.css";
 import Tabela from "../Tabela/Tabela";
 import { ImobiliariasContext } from "../../context/ImobiliariasProvider";
+import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
 
 const Imobiliarias = ({props}) => {
     const {imobiliarias} = useContext(ImobiliariasContext);
     return(
         <body>
             <div className="conteudo">
-                <h1>Imobiliárias</h1>
+            <div className=" mt-3  d-flex justify-content-between align-items-center">
+                    <h4 className="text-secondary">Imobiliárias</h4>
+                    <BotaoCadastro texto="Nova Imobiliária" link="/cadastro-cargo"></BotaoCadastro>
+                </div>
                 <Tabela colunas={[
                     {nome: "Código", proporcao: 10, alinhamento: "center"},
                     {nome: "Nome fantasia", proporcao: 30, alinhamento: "left"},
