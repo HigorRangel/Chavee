@@ -4,9 +4,13 @@ import {Form, Button, Container, Row, Col, Image} from "react-bootstrap";
 import PainelSombreado from "../PainelSombreado/PainelSombreado";
 import niveisAcesso from "../../images/niveis-acesso.png";
 import { CargosContext } from "../../context/CargosProvider";
+import { useParams } from "react-router-dom";
 
 const CadastroCargo = ({props}) => {
-    const {onCargoSubmit} = useContext(CargosContext);
+    const {onCargoSubmit, cargos} = useContext(CargosContext);
+    const {id} = useParams();
+    console.log(cargos);
+    let cargo = Object.values(cargos).find(cargo => cargo.id.toString() === id.toString());
 
     return(
         <body>
@@ -22,17 +26,17 @@ const CadastroCargo = ({props}) => {
                                             <Col xs={3}>
                                                 <Form.Group as={Col} controlId="cargoDescricao">
                                                 <Form.Label>Descrição</Form.Label>
-                                                <Form.Control type="name" placeholder="Ex: Vendedor" required maxLength = "25"/>
+                                                <Form.Control type="name" placeholder="Ex: Vendedor" defaultValue={cargo ? cargo.descricao : null} required maxLength = "25"/>
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={3}>
                                                 <Form.Group as={Col} controlId="cargoNivelAcesso">
                                                     <Form.Label>Nivel de Acesso</Form.Label>
-                                                    <Form.Select defaultValue="1">
-                                                        <option value="1">NÍVEL 1</option>
-                                                        <option value="2">NÍVEL 2</option>
-                                                        <option value="3">NÍVEL 3</option>
-                                                        <option value="4">NÍVEL 4</option>
+                                                    <Form.Select defaultValue={cargo ? cargo.nivel_acesso : null}>
+                                                        <option value={1}>NÍVEL 1</option>
+                                                        <option value={2}>NÍVEL 2</option>
+                                                        <option value={3}>NÍVEL 3</option>
+                                                        <option value={4}>NÍVEL 4</option>
                                                     </Form.Select>
                                                 </Form.Group>
                                             </Col>
