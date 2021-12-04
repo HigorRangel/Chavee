@@ -42,30 +42,14 @@ create table operacao (
 	id int not null auto_increment,
     tipo_doc varchar(30),
     documento varchar(20),
-    data datetime not null,
-    operacao_associada int,
-    
-    primary key (id),
-    foreign key (operacao_associada) references operacao (id)
-);
-
-create table emprestimo (
-	operacao int not null,
-    descricao_retirada varchar(256),
+	nome_cliente varchar(100),
+    data_retirada datetime default now(),
+	descricao_retirada varchar(256) ,
 	entrega_prevista datetime,
-    nome_cliente varchar(50),
+	descricao_devolucao varchar (256),
+	data_devolucao datetime,
     
-    primary key (operacao),
-    foreign key (operacao) references operacao (id)
-);
-
-create table devolucao (
-	operacao int not null,
-    descricao_devolucao varchar (256),
-    nome_cliente varchar(100),
-    
-    primary key(operacao),
-    foreign key (operacao) references operacao (id)
+    primary key (id)
 );
 
 create table chave(
