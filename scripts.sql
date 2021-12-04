@@ -52,23 +52,6 @@ create table operacao (
     primary key (id)
 );
 
-create table emprestimo (
-	operacao int not null,
-    nome_cliente varchar(50),
-    
-    primary key (operacao),
-    foreign key (operacao) references operacao (id)
-);
-
-create table devolucao (
-	operacao int not null,
-    descricao_devolucao varchar (256),
-   
-    
-    primary key(operacao),
-    foreign key (operacao) references operacao (id)
-);
-
 create table chave(
 	id int not null auto_increment,
     rua varchar(100) not null,
