@@ -12,8 +12,8 @@ const UsuariosProvider = (props) =>{
                     nome_completo: "Higor Rangel",
                     email: "hirgo@gmail.com",
                     contato: "12123451234",
-                    cargo: "Administrador",
-                    situacao: "Ativo",
+                    cargo: 1,
+                    situacao: 1,
                 },
             ]
         )

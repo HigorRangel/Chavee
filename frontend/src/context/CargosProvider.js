@@ -10,22 +10,22 @@ const CargosProvider = (props) =>{
                 {
                     id:0,
                     descricao: "Administrador",
-                    nivel_acesso: "1"
+                    nivel_acesso: 1
                 },
                 {
                     id:1,
                     descricao: "Vendedor",
-                    nivel_acesso: "2"
+                    nivel_acesso: 2
                 },
                 {
                     id:2,
                     descricao: "Funcionário",
-                    nivel_acesso: "3"
+                    nivel_acesso: 3
                 },
                 {
                     id:3,
                     descricao: "Visitante",
-                    nivel_acesso: "4"
+                    nivel_acesso: 4
                 }
             ]
         )

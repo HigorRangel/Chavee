@@ -24,7 +24,7 @@ const Cargos = ({props}) => {
                     {nome: "Nível de acesso", proporcao: 10, alinhamento: "center"},
                     {nome: "Ações", proporcao: 10, alinhamento: "center"},
                 ]}
-                registros={cargos} funcaoDelete={deleteCargoHandler}></Tabela>
+                registros={cargos} linkUpdate={"/cadastro-cargo/"}></Tabela>
             </div>
         </body>
     )

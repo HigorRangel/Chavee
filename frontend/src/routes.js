@@ -11,6 +11,8 @@ import CadastroUsuario from "./components/CadastroUsuario/CadastroUsuario";
 import Usuarios from "./components/Usuarios/Usuarios";
 import Imobiliarias from "./components/Imobiliarias/Imobiliarias";
 import Login from "./components/Login/Login";
+import CadastroChave from "./components/CadastroChave/CadastroChave";
+import CadastroOperacao from "./components/CadastroOperacao/CadastroOperacao";
 
 const routes = () => {
     return (
@@ -36,12 +38,36 @@ const routes = () => {
             <CadastroImobiliaria/>
         </Route>
 
+        <Route path="/cadastro-imobiliaria/:id" exact>
+            <CadastroImobiliaria/>
+        </Route>
+
         <Route path="/cadastro-cargo" exact>
+            <CadastroCargo/>
+        </Route>
+
+        <Route path="/cadastro-cargo/:id" exact>
             <CadastroCargo/>
         </Route>
 
         <Route path="/cadastro-usuario" exact>
             <CadastroUsuario/>
+        </Route>
+
+        <Route path="/cadastro-chave/:id" exact>
+            <CadastroChave/>
+        </Route>
+
+        <Route path="/cadastro-chave" exact>
+            <CadastroChave/>
+        </Route>
+
+        <Route path="/cadastro-operacao/:id" exact>
+            <CadastroOperacao/>
+        </Route>
+
+        <Route path="/cadastro-operacao" exact>
+            <CadastroOperacao/>
         </Route>
 
         <Route path="/usuarios" exact>
@@ -58,7 +84,7 @@ const routes = () => {
       
         <Route render={()=> <div> Pagina não encontrada </div>}/>
       </Switch>
-    );
+    ); 
   };
   
   export default routes;
