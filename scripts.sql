@@ -41,6 +41,8 @@ CREATE TABLE usuario (
 
 create table chave(
 	id int not null auto_increment,
+    proprietario varchar(50) not null,
+    contato varchar(12),
     rua varchar(100) not null,
     bairro varchar(50) not null,
     cidade varchar(30) not null,

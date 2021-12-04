@@ -5,11 +5,16 @@ import PainelSombreado from "../PainelSombreado/PainelSombreado"
 import SecaoSombreada from "../SecaoSombreada/SecaoSombreada"
 import Tabela from "../Tabela/Tabela"
 import { UsuariosContext } from "../../context/UsuariosProvider";
+import { CargosContext } from "../../context/CargosProvider";
 
 
 
 const CadastroUsuario = ({props}) => {
     const {onUsuarioSubmit} = useContext(UsuariosContext);
+    const { cargos } = useContext(CargosContext);
+
+    
+    let cargos_ativos = Object.values(cargos).filter((cargo) => cargo.situacao === 1)
     return(
         <body>
             <div className="conteudo">
@@ -58,29 +63,12 @@ const CadastroUsuario = ({props}) => {
                                                 <Form.Group controlId="usuarioCargo">
                                                     <Form.Label>Cargo</Form.Label>
                                                     <Form.Select defaultValue="Administrador">
-                                                        <option id="0">Administrador</option>
-                                                        <option id="1">Vendedor</option>
-                                                        <option id="2">Funcionário</option>
-                                                        <option id="3">Visitante</option>
-                                                    </Form.Select>                                                
-                                                </Form.Group>
-                                            </Col>
-                                            <Col xs={2}>
-                                                <Form.Group controlId="usuarioSituacao">
-                                                    <Form.Label>Situação do Usuário</Form.Label>
-                                                    <Form.Select defaultValue="Ativo">
-                                                        <option>Ativo</option>
-                                                        <option>Inativo</option>
+                                                        {cargos ? cargos_ativos.map((cargo) =><option value = {cargo.id}>{cargo.descricao}</option>): null}
                                                     </Form.Select>                                                
                                                 </Form.Group>
                                             </Col>
                                         </Row>
                                         <Row className="justify-content-end me-4">
-                                            {/* <Col xs={2}>
-                                                <Row className="ms-3">
-                                                    <Button variant="outline-secondary" type="submit">Cancelar</Button>
-                                                </Row>
-                                            </Col> */}
                                             <Col xs={2}>
                                                 <Row className="ms-3">
                                                     <Button variant="primary" type="submit">Salvar Registro</Button>

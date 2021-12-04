@@ -25,14 +25,21 @@ const CargosProvider = (props) =>{
     
     const onCargoSubmit = (event) =>{
         event.preventDefault();
-        let newCargos = [...cargos,
-        {
-          id:cargos.length,
+        let object = {
           descricao: event.target.cargoDescricao.value,
           nivel_acesso: event.target.cargoNivelAcesso.value,
+          id_imobiliaria:id
         }
-        ];
-        setCargos(newCargos);
+
+        axios
+            .post("http://localhost:3003/cargo/inserir",object,{
+                headers: {
+                  Authorization: token.token,
+                }
+            })
+            .then((response) => {
+                console.log(response.data);
+            });
       }
 
     

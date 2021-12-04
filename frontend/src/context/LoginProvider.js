@@ -38,6 +38,7 @@ const LoginProvider = (props) => {
       value={{
         token: token,
         authUser: authUser,
+        setToken:setToken
       }}
     >
       {props.children}
