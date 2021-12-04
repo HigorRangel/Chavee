@@ -11,7 +11,7 @@ const Imobiliarias = ({props}) => {
             <div className="conteudo">
             <div className=" mt-3  d-flex justify-content-between align-items-center">
                     <h4 className="text-secondary">Imobiliárias</h4>
-                    <BotaoCadastro texto="Nova Imobiliária" link="/cadastro-cargo"></BotaoCadastro>
+                    <BotaoCadastro texto="Nova Imobiliária" link="/cadastro-imobiliaria"></BotaoCadastro>
                 </div>
                 <Tabela colunas={[
                     {nome: "Código", proporcao: 10, alinhamento: "center"},

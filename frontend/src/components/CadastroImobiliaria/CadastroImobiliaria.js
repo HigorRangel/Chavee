@@ -5,15 +5,12 @@ import PainelSombreado from "../PainelSombreado/PainelSombreado"
 import { ImobiliariasContext } from "../../context/ImobiliariasProvider";
 import { useParams } from "react-router-dom";
 
-
-
 const CadastroImobiliaria = ({props}) => {
+  const {onImobiliariaSubmit} = useContext(ImobiliariasContext);
     const {imobiliarias} = useContext(ImobiliariasContext);
     const {id} = useParams();
     console.log(imobiliarias);
     let imobiliaria = Object.values(imobiliarias).find(imobiliaria => imobiliaria.id.toString() === id.toString());
-
-
 
     return(
         <div className="conteudo">
@@ -21,7 +18,7 @@ const CadastroImobiliaria = ({props}) => {
             <h4 className="text-center text-secondary  mb-4">Cadastro de Imobiliária</h4>
             <Row>
                 <Col>
-                <Form className="mx-3  mb-5">
+                <Form onSubmit={onImobiliariaSubmit}className="mx-3  mb-5">
                     <Row className="mb-3">
                         <Col xs={4}>
                             <Form.Group as={Col} controlId="formNomeFantasia">
@@ -45,7 +42,7 @@ const CadastroImobiliaria = ({props}) => {
                         </Col>
 
                         <Col xs={2}>
-                            <Form.Group as={Col} controlId="Nome do Cargo Administrador">
+                            <Form.Group as={Col} controlId="formCargoAdministrador">
                             <Form.Label>Cargo Administrador</Form.Label>
                             <Form.Control type="name" placeholder="Ex: Gerente de Vendas" required maxLength = "25"/>
                             </Form.Group>
@@ -103,7 +100,7 @@ const CadastroImobiliaria = ({props}) => {
                                 <Col xs={2}>
                                     <Form.Group as={Col} controlId="formConfirmaSenha">
                                     <Form.Label>Confirme a Senha</Form.Label>
-                                    <Form.Control required type="passowrd"/>
+                                    <Form.Control required type="password"/>
                                     </Form.Group>
                                 </Col>
                 
