@@ -6,7 +6,7 @@ import './BotaoUpdate.css'
 
 const BotaoUpdate = (props) => {
     return(
-       <Link lassName="botaoAcaoTabela" to={props.link}><FontAwesomeIcon  c icon={faTools} size="lg" color="#0B2149"  opacity={0.5}/></Link>
+       <Link lassName="botaoAcaoTabela" to={props.link}><FontAwesomeIcon  icon={faTools} size="lg" color="#0B2149"  opacity={0.5}/></Link>
         
 )
 }

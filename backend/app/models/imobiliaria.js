@@ -2,7 +2,7 @@ let sql = "";
 
 module.exports = {
     getAllImobiliarias:function (connection,callback){
-        sql = `SELECT * from imobiliaria`;
+        sql = `SELECT *, DATE_FORMAT(data_cadastro, '%d/%m/%Y') data_cadastro from imobiliaria`;
         connection.query(sql,callback);
     },
 

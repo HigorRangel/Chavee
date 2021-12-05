@@ -1,5 +1,6 @@
 import React,{ useState, useEffect, useContext} from 'react';
 import { LoginContext } from './LoginProvider';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 export const ChavesContext = React.createContext();
 
@@ -14,21 +15,25 @@ const ChavesProvider = (props) =>{
         id = token.id_imobiliaria
     }
     
+    let history = useHistory();
+    
     useEffect(()=>{
-        const intervalId = setInterval(() => {
-            axios
-            .get('http://localhost:3003/chave/listar/'+id)
-            .then((response) => {
-                setChaves(response.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        if(token){
+            const intervalId = setInterval(() => {
+                axios
+                .get('http://localhost:3003/chave/listar/'+id)
+                .then((response) => {
+                    setChaves(response.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
 
-            
-        }, 1000)
+                
+            }, 1000)
 
-        return () => clearInterval(intervalId);
+            return () => clearInterval(intervalId);
+            }
     });
     
     useEffect(()=>{
@@ -43,10 +48,39 @@ const ChavesProvider = (props) =>{
             })
         }
         setChavesFormatadas(chavesNovas)
-    },[chaves])
+    },[chaves]);
 
+    const onChaveSubmit = (event) =>{
+        event.preventDefault();
+        let object = {
+            rua:event.target.formLogradouroCad.value,
+            bairro:event.target.formBairroCad.value,
+            cidade:event.target.formCidadeCad.value,
+            estado:event.target.formEstadoCad.value,
+            numero:event.target.formNumeroCad.value,
+            complemento:event.target.formComplementoCad.value,
+            finalidade:event.target.formFinalidadeImovelCad.value,
+            categoria_imovel:event.target.formCategoriaImovelCad.value,
+            cod_interno:null,
+            cod_imovel:event.target.formCodigoImovelCad.value,
+            observacao:event.target.formPontoReferenciaCad.value,
+            usuario:token.id,
+            proprietario:event.target.formProprietarioCad.value,
+            contato:event.target.formContatoCad.value,
+          }
+
+          axios
+          .post("http://localhost:3003/chave/inserir",object,{
+              headers: {
+                Authorization: token.token,
+              }
+          })
+          .then((response) => {
+              history.push("/chaves");
+          });
+    }
     return(
-        <ChavesContext.Provider value={{chaves: chaves, chavesFormatadas:chavesFormatadas}}>
+        <ChavesContext.Provider value={{chaves: chaves, chavesFormatadas:chavesFormatadas, onChaveSubmit:onChaveSubmit}}>
             {props.children}
         </ChavesContext.Provider>
     )

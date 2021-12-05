@@ -1,23 +1,28 @@
-import React,{ useState, useEffect} from 'react';
+import React,{ useState, useEffect,useContext} from 'react';
 import validator from 'validator';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import {LoginContext} from './LoginProvider';
 export const ImobiliariasContext = React.createContext();
 
 const ImobiliariasProvider = (props) =>{
     const [imobiliarias,setImobiliarias] = useState({});
+    const {token} = useContext(LoginContext);
+
     let history = useHistory();
 
     useEffect(()=>{
-        const intervalId = setInterval(() => {
-        axios
-            .get('http://localhost:3003/imobiliaria/listar')
-            .then((response) =>{
-                setImobiliarias(response.data);
-            })
-        },1000)
+        if(token){
+            const intervalId = setInterval(() => {
+            axios
+                .get('http://localhost:3003/imobiliaria/listar')
+                .then((response) =>{
+                    setImobiliarias(response.data);
+                })
+            },1000)
 
-        return () => clearInterval(intervalId);
+            return () => clearInterval(intervalId);
+        }
     });
     
     const onImobiliariaSubmit = (event) =>{

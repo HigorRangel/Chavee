@@ -5,9 +5,13 @@ import {Form, Button, Container, Row, Col, Table, InputGroup} from "react-bootst
 import PainelSombreado from "../PainelSombreado/PainelSombreado"
 import Tabela from "../Tabela/Tabela";
 import { OperacoesContext } from "../../context/OperacoesProvider";
+import { UsuariosContext } from "../../context/UsuariosProvider";
+import { ChavesContext } from "../../context/ChavesProvider";
+
 const Dashboard = ({props}) => {
     const {operacoes} = useContext(OperacoesContext);
-    
+    const {chaves} = useContext(ChavesContext);
+    const {usuarios} = useContext(UsuariosContext);
     return(
         <body>        
             <div className="conteudo">
@@ -18,7 +22,7 @@ const Dashboard = ({props}) => {
                         <Col xs={3} className="ps-0">
                             <PainelSombreado elemento={
                                 <div className="py-2">
-                                    <h1 className="dadosDashboard">20</h1>
+                                    <h1 className="dadosDashboard">{operacoes.length}</h1>
                                     <h4 className="text-center text-secondary">Empréstimos Realizados</h4>
                                 </div>
                             }></PainelSombreado>
@@ -26,7 +30,7 @@ const Dashboard = ({props}) => {
                         <Col xs={3} className="">
                             <PainelSombreado elemento={
                                 <div className="py-2">
-                                    <h1 className="dadosDashboard">100</h1>
+                                    <h1 className="dadosDashboard">{chaves.length}</h1>
                                     <h4 className="text-center text-secondary">Chaves Cadastradas</h4>
                                 </div>
                             }></PainelSombreado>
@@ -34,8 +38,8 @@ const Dashboard = ({props}) => {
                         <Col xs={3} className="pe-0">
                             <PainelSombreado elemento={
                                 <div className="py-2">
-                                    <h1 className="dadosDashboard">5</h1>
-                                    <h4 className="text-center text-secondary">Usuários Logados</h4>
+                                    <h1 className="dadosDashboard">{usuarios.length}</h1>
+                                    <h4 className="text-center text-secondary">Usuários Cadastrados</h4>
                                 </div>
                             }></PainelSombreado>
                         </Col>
@@ -52,11 +56,11 @@ const Dashboard = ({props}) => {
                             
                         ]}
                         registros={[
-                            {0:0, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:"ATIVO", 4:"HIGOR", 5:" "},
-                            {0:1, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:"ATIVO", 4:"HIGOR", 5:" "},
-                            {0:2, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:"ATIVO", 4:"HIGOR", 5:" "},
-                            {0:3, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:"ATIVO", 4:"HIGOR", 5:" "},
-                            {0:4, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:"ATIVO", 4:"HIGOR", 5:" "},
+                            {0:0, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:1, 4:"HIGOR", 5:" "},
+                            {0:1, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:2, 4:"HIGOR", 5:" "},
+                            {0:2, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:1, 4:"HIGOR", 5:" "},
+                            {0:3, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:2, 4:"HIGOR", 5:" "},
+                            {0:4, 1:"V345", 2:"Rua Antônio Meneghel, 123 - Jardim São Luiz - Americana", 3:1, 4:"HIGOR", 5:" "},
                         ]}></Tabela>
                         </Col>
                     </Row>

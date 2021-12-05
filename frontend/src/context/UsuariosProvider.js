@@ -14,18 +14,20 @@ const UsuariosProvider = (props) =>{
     }
 
     useEffect(()=>{
-        const intervalId = setInterval(() => {
-            axios
-            .get('http://localhost:3003/usuario/listar/'+id)
-            .then((response) => {
-                setUsuarios(response.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-        }, 1000)
+        if(token){
+            const intervalId = setInterval(() => {
+                axios
+                .get('http://localhost:3003/usuario/listar/'+id)
+                .then((response) => {
+                    setUsuarios(response.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            }, 1000)
 
-        return () => clearInterval(intervalId);
+            return () => clearInterval(intervalId);
+        }
     });
 
     useEffect(()=>{

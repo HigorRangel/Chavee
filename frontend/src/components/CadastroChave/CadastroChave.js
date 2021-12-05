@@ -55,9 +55,9 @@ const CadastroChave = ({props}) => {
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={1}>
-                                                <Form.Group controlId="formEstadoEstadoCad">
+                                                <Form.Group controlId="formEstadoCad">
                                                     <Form.Label>Estado</Form.Label>
-                                                    <Form.Control required type="text" placeholder="Ex: SP" maxLength = "15"></Form.Control>
+                                                    <Form.Control required type="text" placeholder="Ex: SP" maxLength = "2"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                         </Row>
@@ -117,11 +117,6 @@ const CadastroChave = ({props}) => {
                                             </Col>
                                         </Row>
                                         <Row className="justify-content-end me-4">
-                                            {/* <Col xs={2}>
-                                                <Row className="ms-3">
-                                                    <Button variant="outline-secondary" type="submit">Cancelar</Button>
-                                                </Row>
-                                            </Col> */}
                                             <Col xs={2}>
                                                 <Row className="ms-3">
                                                     <Button variant="primary" type="submit">Salvar Registro</Button>
