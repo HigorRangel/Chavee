@@ -9,8 +9,8 @@ import { useParams } from "react-router-dom";
 const CadastroCargo = ({props}) => {
     const {onCargoSubmit, cargos} = useContext(CargosContext);
     const {id} = useParams();
-    console.log(cargos);
-    let cargo = Object.values(cargos).find(cargo => cargo.id.toString() === id.toString());
+    
+    let cargo = id ? Object.values(cargos).find(cargo => cargo.id.toString() === id.toString()): null;
 
     return(
         <body>

@@ -1,38 +1,30 @@
-import React,{ useState, useEffect} from 'react';
+import React,{ useContext,useState, useEffect} from 'react';
+import axios from 'axios';
+import { LoginContext } from './LoginProvider';
 export const UsuariosContext = React.createContext();
 
 const UsuariosProvider = (props) =>{
     const [usuarios,setUsuarios] = useState({});
+    const {token} = useContext(LoginContext);
+
+    let id = "";
+    if(token){
+        id = token.id_imobiliaria
+    }
 
     useEffect(()=>{
-        setUsuarios(
-            [
-                {
-                    id: 0,
-                    nome_completo: "Higor Rangel",
-                    email: "hirgo@gmail.com",
-                    contato: "12123451234",
-                    cargo: 1,
-                    situacao: 1,
-                },
-            ]
-        )
-    }, [])
+        axios
+            .get('http://localhost:3003/usuario/listar/'+id)
+            .then((response) => {
+                setUsuarios(response.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    });
+
     
-    const onUsuarioSubmit = (event) =>{
-        event.preventDefault();
-        let newUsuarios = [...usuarios,
-        {
-          id:usuarios.length,
-          nome_completo: (event.target.usuarioNome.value + " " + event.target.usuarioNomeMeio.value+ " " + event.target.usuarioNomeUltimo.value),
-          email: event.target.usuarioEmail.value,
-          contato: event.target.usuarioContato.value,
-          cargo: event.target.usuarioCargo.value,
-          situacao: event.target.usuarioSituacao.value,
-        }
-        ];
-        setUsuarios(newUsuarios);
-      }
+    const onUsuarioSubmit = (event) =>{}
 
     return(
         <UsuariosContext.Provider value={{ usuarios: usuarios, onUsuarioSubmit:onUsuarioSubmit}}>

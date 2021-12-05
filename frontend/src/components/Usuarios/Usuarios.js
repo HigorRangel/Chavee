@@ -6,6 +6,7 @@ import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
 
 const Usuarios = ({props}) => {
     const {usuarios} = useContext(UsuariosContext);
+    console.log(usuarios);
     return(
         <body>
             <div className="conteudo">

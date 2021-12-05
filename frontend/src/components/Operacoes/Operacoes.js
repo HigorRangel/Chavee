@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import "./Emprestimos.css";
+import "./Operacoes.css";
 import Tabela from "../Tabela/Tabela"
-import { EmprestimosContext } from "../../context/EmprestimosProvider";
+import { OperacoesContext } from "../../context/OperacoesProvider";
 import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
 
 
-const Emprestimos = ({props}) => {
-    const {emprestimos} = useContext(EmprestimosContext);
+const Operacoes = ({props}) => {
+    const {operacoes} = useContext(OperacoesContext);
     return(
         <body>
             <div className="conteudo">
@@ -25,9 +25,9 @@ const Emprestimos = ({props}) => {
                     {nome: "Ações",  proporcao: 10, alinhamento: "center"}
                     
                 ]}
-                registros={emprestimos}></Tabela>
+                registros={operacoes}></Tabela>
             </div>
         </body>
     )
 }
-export default Emprestimos;
+export default Operacoes;

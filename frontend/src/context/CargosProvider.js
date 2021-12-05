@@ -13,7 +13,7 @@ const CargosProvider = (props) =>{
     }
 
     useEffect(()=>{
-        axios
+            axios
             .get('http://localhost:3003/cargo/listar/'+id)
             .then((response) => {
                 setCargos(response.data);

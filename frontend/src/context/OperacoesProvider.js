@@ -1,33 +1,34 @@
 import React,{ useState, useEffect, useContext} from 'react';
 import { LoginContext } from './LoginProvider';
 import axios from 'axios';
-export const ChavesContext = React.createContext();
+export const OperacoesContext = React.createContext();
 
-const ChavesProvider = (props) =>{
-    const [chaves,setChaves] = useState({});
+const OperacoesProvider = (props) =>{
+    const [operacoes,setOperacoes] = useState({});
     const {token} = useContext(LoginContext);
 
     let id = "";
     if(token){
         id = token.id_imobiliaria
     }
-    
+
     useEffect(()=>{
         axios
-        .get('http://localhost:3003/chave/listar/'+id)
+        .get('http://localhost:3003/operacao/listar/'+id)
         .then((response) => {
-            setChaves(response.data);
+            setOperacoes(response.data);
         })
         .catch((err) => {
             console.log(err);
         });
-    });
+    
+    })
     
     return(
-        <ChavesContext.Provider value={{chaves: chaves}}>
+        <OperacoesContext.Provider value={{ operacoes: operacoes}}>
             {props.children}
-        </ChavesContext.Provider>
+        </OperacoesContext.Provider>
     )
 };
 
-export default ChavesProvider
+export default OperacoesProvider

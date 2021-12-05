@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 
 import Dashboard from "./components/Dashboard/Dashboard";
 import Chaves from "./components/Chaves/Chaves";
-import Emprestimos from "./components/Emprestimos/Emprestimos";
+import Operacoes from "./components/Operacoes/Operacoes";
 import Cargos from "./components/Cargos/Cargos";
 import CadastroImobiliaria from "./components/CadastroImobiliaria/CadastroImobiliaria";
 import CadastroCargo from "./components/CadastroCargo/CadastroCargo";
@@ -13,6 +13,8 @@ import Imobiliarias from "./components/Imobiliarias/Imobiliarias";
 import Login from "./components/Login/Login";
 import CadastroChave from "./components/CadastroChave/CadastroChave";
 import CadastroOperacao from "./components/CadastroOperacao/CadastroOperacao";
+import PaginaSemPermissao from "./components/PaginaSemPermissao/PaginaSemPermissao";
+import PaginaErro from "./components/PaginaErro/PaginaErro";
 
 const routes = () => {
 
@@ -31,8 +33,8 @@ const routes = () => {
             <Chaves/>
         </Route>
         
-        <Route path="/emprestimos" exact>
-            <Emprestimos/>
+        <Route path="/operacoes" exact>
+            <Operacoes/>
         </Route>
 
         <Route path="/cargos" exact>
@@ -83,8 +85,11 @@ const routes = () => {
             <Imobiliarias/>
         </Route>
 
-      
-        <Route render={()=> <div> Pagina não encontrada </div>}/>
+        <Route path="/permissao" exact>
+            <PaginaSemPermissao/>
+        </Route>
+
+        <Route render={()=> <PaginaErro/>}/>
       </Switch>
     ); 
   };

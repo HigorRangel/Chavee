@@ -4,9 +4,9 @@ import Tabela from "../Tabela/Tabela"
 import { ChavesContext } from "../../context/ChavesProvider";
 import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
 
-
 const Chaves = ({props}) => {
     const {chaves} = useContext(ChavesContext);
+
     return(
         <body>
             <div className="conteudo">

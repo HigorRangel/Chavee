@@ -10,7 +10,7 @@ import Header from "./components/Header/Header";
 import CargosProvider from "./context/CargosProvider";
 import ChavesProvider from "./context/ChavesProvider";
 import ImobiliariasProvider from "./context/ImobiliariasProvider";
-import EmprestimosProvider from "./context/EmprestimosProvider";
+import OperacoesProvider from "./context/OperacoesProvider";
 import UsuariosProvider from "./context/UsuariosProvider";
 import LoginProvider from "./context/LoginProvider";
 
@@ -23,11 +23,11 @@ function App() {
           <CargosProvider>
             <ChavesProvider>
               <ImobiliariasProvider>
-                <EmprestimosProvider>
+                <OperacoesProvider>
                   <Header/>
                   <HeaderLateral/>
                   <Routes/>
-                </EmprestimosProvider>
+                </OperacoesProvider>
               </ImobiliariasProvider>
             </ChavesProvider>
           </CargosProvider>
