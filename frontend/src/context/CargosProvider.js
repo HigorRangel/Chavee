@@ -1,11 +1,13 @@
 import React,{ useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 import { LoginContext } from './LoginProvider';
+import { useHistory } from 'react-router';
 export const CargosContext = React.createContext();
 
 const CargosProvider = (props) =>{
     const [cargos,setCargos] = useState([]);
     const {token} = useContext(LoginContext);
+    let history = useHistory();
 
     let id = "";
     if(token){
@@ -13,18 +15,20 @@ const CargosProvider = (props) =>{
     }
 
     useEffect(()=>{
-        const intervalId = setInterval(() => {
-            axios
-            .get('http://localhost:3003/cargo/listar/'+id)
-            .then((response) => {
-                setCargos(response.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-        }, 5000)
+        if(token){
+            const intervalId = setInterval(() => {
+                axios
+                .get('http://localhost:3003/cargo/listar/'+id)
+                .then((response) => {
+                    setCargos(response.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            }, 1000)
 
-        return () => clearInterval(intervalId);
+            return () => clearInterval(intervalId);
+        }
     });
     
     const onCargoSubmit = (event) =>{
@@ -42,9 +46,27 @@ const CargosProvider = (props) =>{
                 }
             })
             .then((response) => {
-                console.log(response.data);
+                history.push("/cargos");
             });
-      }
+    }
+
+    const onCargoUpdateSubmit = (event) =>{
+        event.preventDefault();
+        let object = {
+            descricao:event.target.cargoDescricao.value,
+            nivel_acesso:event.target.cargoNivelAcesso.value,
+            situacao:1
+        }
+        axios
+            .put("http://localhost:3003/cargo/atualizar/"+event.target.cargoID.value,object,{
+                headers: {
+                  Authorization: token.token,
+                }
+            })
+            .then((response) => {
+                history.push("/cargos");
+            });
+    }
 
     
     const deleteCargoHandler = (cargo) =>{
@@ -60,13 +82,13 @@ const CargosProvider = (props) =>{
                 }
             })
             .then((response) => {
-            console.log(response.data);
+                history.push("/cargos");
             });
     }
 
     
     return(
-        <CargosContext.Provider value={{ cargos: cargos, onCargoSubmit:onCargoSubmit, deleteCargoHandler:deleteCargoHandler}}>
+        <CargosContext.Provider value={{ cargos: cargos, onCargoSubmit:onCargoSubmit,onCargoUpdateSubmit:onCargoUpdateSubmit, deleteCargoHandler:deleteCargoHandler}}>
             {props.children}
         </CargosContext.Provider>
     )

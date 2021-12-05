@@ -7,11 +7,15 @@ import { CargosContext } from "../../context/CargosProvider";
 import { useParams } from "react-router-dom";
 
 const CadastroCargo = ({props}) => {
-    const {onCargoSubmit, cargos} = useContext(CargosContext);
+    const {onCargoSubmit, cargos, onCargoUpdateSubmit} = useContext(CargosContext);
     const {id} = useParams();
-    
+    let updateScenario = false;
     let cargo = id ? Object.values(cargos).find(cargo => cargo.id.toString() === id.toString()): null;
 
+    if(cargo){
+        updateScenario= true;
+    }
+    
     return(
         <body>
             <div className="conteudo">
@@ -20,8 +24,9 @@ const CadastroCargo = ({props}) => {
                         <Col >
                             <PainelSombreado elemento={
                                 <div>
-                                    <h4 className="text-center text-secondary  mb-4">Cadastro de Cargo</h4>
-                                    <Form onSubmit={onCargoSubmit}>
+                                    <h4 className="text-center text-secondary  mb-4">{!updateScenario?"Cadastro de Cargo":"Atualização de Cargo"}</h4>
+                                    <Form onSubmit={!updateScenario?onCargoSubmit:onCargoUpdateSubmit}>
+                                        
                                         <Row>
                                             <Col xs={3}>
                                                 <Form.Group as={Col} controlId="cargoDescricao">
@@ -41,13 +46,16 @@ const CadastroCargo = ({props}) => {
                                                 </Form.Group>
                                             </Col>
                                         </Row>
+                                        <Form.Group controlId="cargoID">
+                                            <Form.Control className= "invisible" defaultValue={updateScenario?cargo.id:null}></Form.Control>
+                                        </Form.Group>
                                         <div className="m-3">
                                             <Image src={niveisAcesso} fluid />
                                         </div>
                                         <Row className="justify-content-end me-4">
                                             <Col xs={2}>
                                                 <Row className="ms-3">
-                                                    <Button variant="primary" type="submit">Salvar Registro</Button>
+                                                    <Button variant="primary" type="submit">{!updateScenario?"Salvar Cargo":"Atualizar Cargo"}</Button>
                                                 </Row>
                                             </Col>
                                         </Row>

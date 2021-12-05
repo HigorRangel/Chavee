@@ -14,7 +14,8 @@ const OperacoesProvider = (props) =>{
     }
 
     useEffect(()=>{
-        const intervalId = setInterval(() => {
+        if(token){
+            const intervalId = setInterval(() => {
             axios
             .get('http://localhost:3003/operacao/listar/'+id)
             .then((response) => {
@@ -23,9 +24,10 @@ const OperacoesProvider = (props) =>{
             .catch((err) => {
                 console.log(err);
             });
-        },1000)
+            },1000)
 
-        return () => clearInterval(intervalId);
+            return () => clearInterval(intervalId);
+        }
     })
     
     useEffect(()=>{
