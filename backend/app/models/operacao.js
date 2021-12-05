@@ -4,7 +4,8 @@ let sql = "";
 
 module.exports = {
     getOperacoesByImobiliariaId:function (id_imobiliaria,connection,callback){
-        sql =`select o.* from operacao o 
+        sql =`select o.*,COALESCE(ch.cod_imovel, "n/D") as cod_imovel,ch.id as id_chave,CONCAT (ch.rua,' ',ch.numero,', ',ch.bairro,' ',ch.cidade) as endereco from operacao o 
+		inner join chave ch on o.cod_chave = ch.id
         inner join usuario u on o.cod_usuario = u.id
         inner join cargo c on u.cod_cargo = c.id
         inner join imobiliaria i on c.cod_imobiliaria = i.id

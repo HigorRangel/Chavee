@@ -2,10 +2,11 @@ let sql = "";
 
 module.exports = {
     getChavesByImobiliariaId: function (id_imobiliaria, connection, callback) {
-        sql = `select ch.* from chave ch  inner join usuario u on ch.usuario = u.id
+        sql = `select ch.*, COALESCE(ch.cod_imovel, "n/D") as cod_imovel, CONCAT (ch.rua,' ',ch.numero,', ',ch.bairro,' ',ch.cidade) as endereco,CONCAT(u.primeiro_nome,' ',u.ultimo_nome) as funcionario from chave ch 
+        inner join usuario u on ch.usuario = u.id
         inner join cargo cg on u.cod_cargo = cg.id
         inner join imobiliaria i on cg.cod_imobiliaria = i.id
-        where i.id = ${id_imobiliaria}`
+        where i.id =  ${id_imobiliaria}`
         connection.query(sql, callback);
     },
 

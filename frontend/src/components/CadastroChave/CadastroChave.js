@@ -5,11 +5,20 @@ import PainelSombreado from "../PainelSombreado/PainelSombreado"
 import SecaoSombreada from "../SecaoSombreada/SecaoSombreada"
 import Tabela from "../Tabela/Tabela"
 import { ChavesContext } from "../../context/ChavesProvider";
-
-
+import { LoginContext } from "../../context/LoginProvider";
+import { useHistory } from "react-router-dom";
 
 const CadastroChave = ({props}) => {
     const {onChaveSubmit} = useContext(ChavesContext);
+    const {token} = useContext(LoginContext);
+    let history = useHistory();
+
+    if(token){
+        if(token.nivel_acesso >3){
+            history.push("/permissao");
+        }
+    }
+
     return(
         <body>
             <div className="conteudo">

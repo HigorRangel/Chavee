@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom'
 import './BotaoUpdate.css'
 
 const BotaoUpdate = (props) => {
-    console.log(props);
     return(
        <Link lassName="botaoAcaoTabela" to={props.link}><FontAwesomeIcon  c icon={faTools} size="lg" color="#0B2149"  opacity={0.5}/></Link>
         

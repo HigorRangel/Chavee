@@ -4,9 +4,9 @@ import {} from "react-bootstrap"
 import {Form, Button, Container, Row, Col, Table, InputGroup} from "react-bootstrap"
 import PainelSombreado from "../PainelSombreado/PainelSombreado"
 import Tabela from "../Tabela/Tabela";
-import { EmprestimosContext } from "../../context/EmprestimosProvider";
+import { OperacoesContext } from "../../context/OperacoesProvider";
 const Dashboard = ({props}) => {
-    const {emprestimos} = useContext(EmprestimosContext);
+    const {operacoes} = useContext(OperacoesContext);
     
     return(
         <body>        

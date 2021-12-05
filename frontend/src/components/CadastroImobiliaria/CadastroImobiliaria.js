@@ -9,8 +9,7 @@ const CadastroImobiliaria = ({props}) => {
   const {onImobiliariaSubmit} = useContext(ImobiliariasContext);
     const {imobiliarias} = useContext(ImobiliariasContext);
     const {id} = useParams();
-    console.log(imobiliarias);
-    let imobiliaria = Object.values(imobiliarias).find(imobiliaria => imobiliaria.id.toString() === id.toString());
+    let imobiliaria = id ?Object.values(imobiliarias).find(imobiliaria => imobiliaria.id.toString() === id.toString()):null;
 
     return(
         <div className="conteudo">

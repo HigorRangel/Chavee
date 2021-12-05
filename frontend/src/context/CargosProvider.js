@@ -4,7 +4,7 @@ import { LoginContext } from './LoginProvider';
 export const CargosContext = React.createContext();
 
 const CargosProvider = (props) =>{
-    const [cargos,setCargos] = useState({});
+    const [cargos,setCargos] = useState([]);
     const {token} = useContext(LoginContext);
 
     let id = "";
@@ -13,7 +13,8 @@ const CargosProvider = (props) =>{
     }
 
     useEffect(()=>{
-        axios
+        const intervalId = setInterval(() => {
+            axios
             .get('http://localhost:3003/cargo/listar/'+id)
             .then((response) => {
                 setCargos(response.data);
@@ -21,6 +22,9 @@ const CargosProvider = (props) =>{
             .catch((err) => {
                 console.log(err);
             });
+        }, 5000)
+
+        return () => clearInterval(intervalId);
     });
     
     const onCargoSubmit = (event) =>{

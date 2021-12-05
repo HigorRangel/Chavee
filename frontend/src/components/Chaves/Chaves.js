@@ -4,9 +4,9 @@ import Tabela from "../Tabela/Tabela"
 import { ChavesContext } from "../../context/ChavesProvider";
 import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
 
-
 const Chaves = ({props}) => {
-    const {chaves} = useContext(ChavesContext);
+    const {chavesFormatadas} = useContext(ChavesContext);
+
     return(
         <body>
             <div className="conteudo">
@@ -23,7 +23,7 @@ const Chaves = ({props}) => {
                     {nome: "Ações",  proporcao: 10, alinhamento: "center"}
                     
                 ]}
-                registros={chaves}></Tabela>
+                registros={chavesFormatadas}></Tabela>
             </div>
         </body>
     )

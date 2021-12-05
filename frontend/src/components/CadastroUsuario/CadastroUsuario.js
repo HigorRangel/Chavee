@@ -53,6 +53,22 @@ const CadastroUsuario = ({props}) => {
                                         </Row>
 
                                         <Row>
+                                            <Col xs={2}>
+                                                <Form.Group as={Col} controlId="usuarioSenha">
+                                                <Form.Label>Senha</Form.Label>
+                                                <Form.Control required type="password"/>
+                                                </Form.Group>
+                                            </Col>
+                                            
+                                            <Col xs={2}>
+                                                <Form.Group as={Col} controlId="usuarioConfirmaSenha">
+                                                <Form.Label>Confirme a Senha</Form.Label>
+                                                <Form.Control required type="password"/>
+                                                </Form.Group>
+                                            </Col>
+                            
+                                            
+                                            
                                             <Col xs={3}>
                                                 <Form.Group controlId="usuarioContato">
                                                     <Form.Label>Contato</Form.Label>
@@ -67,7 +83,13 @@ const CadastroUsuario = ({props}) => {
                                                     </Form.Select>                                                
                                                 </Form.Group>
                                             </Col>
-                                        </Row>
+
+                                            <Form.Text className="text-muted">
+                                                A senha deve conter pelo menos 8 caracteres alfanuméricos.
+                                            </Form.Text>
+                                            
+        
+                                            </Row>
                                         <Row className="justify-content-end me-4">
                                             <Col xs={2}>
                                                 <Row className="ms-3">

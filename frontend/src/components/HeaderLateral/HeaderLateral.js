@@ -17,7 +17,7 @@ function HeaderLateral(){
                         <ul className={"list-unstyled"}>
                             <li className={"mb-5 botao"}><NavLink to="/dashboard" exact><FontAwesomeIcon icon={faHome} color={"#0B2149"}  size="lg"/></NavLink></li>
                             <li className={"mb-5 botao"}><NavLink to="/chaves" exact><FontAwesomeIcon icon={faKey} color={"#0B2149"}  size="lg"/></NavLink></li>
-                            <li className={"mb-5 botao"}><NavLink to="/emprestimos" exact><FontAwesomeIcon icon={faClipboardList} color={"#0B2149"}  size="lg"/></NavLink></li>
+                            <li className={"mb-5 botao"}><NavLink to="/operacoes" exact><FontAwesomeIcon icon={faClipboardList} color={"#0B2149"}  size="lg"/></NavLink></li>
                             <li className={"mb-5 botao"}><NavLink to="/cargos" exact><FontAwesomeIcon icon={faBriefcase} color={"#0B2149"}  size="lg"/></NavLink></li>
                             <li className={"botao"}><NavLink to="/cadastro-imobiliaria" exact><FontAwesomeIcon icon={faBuilding} color={"#0B2149"}  size="lg"/></NavLink></li>
                             {/* <li><NavLink to="/cadastro-cargos" exact><FontAwesomeIcon icon={faHome} color={"#0B2149"}  size="lg"/></NavLink></li>
