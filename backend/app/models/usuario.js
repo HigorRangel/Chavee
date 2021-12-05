@@ -2,7 +2,7 @@ let sql = "";
 
 module.exports = {
     getUsuariosByImobiliariaId:function (id_imobiliaria,connection,callback){
-        sql=`SELECT u.id, CONCAT (u.primeiro_nome,' ',  COALESCE (u.nomes_meio, ''), ' ', u.ultimo_nome) as nome_completo,u.email,u.contato,c.descricao,u.situacao from usuario u
+        sql=`SELECT u.*,c.descricao from usuario u
         inner join cargo c on u.cod_cargo = c.id
         inner join imobiliaria i on c.cod_imobiliaria = i.id
         where i.id = ${id_imobiliaria}`;

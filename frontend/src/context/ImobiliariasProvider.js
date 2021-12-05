@@ -9,11 +9,15 @@ const ImobiliariasProvider = (props) =>{
     let history = useHistory();
 
     useEffect(()=>{
+        const intervalId = setInterval(() => {
         axios
             .get('http://localhost:3003/imobiliaria/listar')
             .then((response) =>{
                 setImobiliarias(response.data);
             })
+        },1000)
+
+        return () => clearInterval(intervalId);
     });
     
     const onImobiliariaSubmit = (event) =>{

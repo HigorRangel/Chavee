@@ -5,8 +5,7 @@ import { UsuariosContext } from "../../context/UsuariosProvider";
 import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
 
 const Usuarios = ({props}) => {
-    const {usuarios} = useContext(UsuariosContext);
-    console.log(usuarios);
+    const {usuariosFormatados} = useContext(UsuariosContext);
     return(
         <body>
             <div className="conteudo">
@@ -16,15 +15,15 @@ const Usuarios = ({props}) => {
                 </div>
                 <Tabela colunas={[
                     {nome: "Código", proporcao: 10, alinhamento: "center"},
-                    {nome: "Nome completo", proporcao: 10, alinhamento: "left" },
-                    {nome: "Email", proporcao: 10, alinhamento: "left"},
+                    {nome: "Nome completo", proporcao: 20, alinhamento: "left" },
+                    {nome: "Email", proporcao: 15, alinhamento: "left"},
                     {nome: "Contato", proporcao: 10, alinhamento: "center"},
                     {nome: "Cargo", proporcao: 10, alinhamento: "center"},
                     {nome: "Situação", proporcao: 10, alinhamento: "left"},
-                    {nome: "Ações", proporcao: 10, alinhamento: "center"}
+                    {nome: "Ações", proporcao: 5, alinhamento: "center"}
                     
                 ]}
-                registros={usuarios}></Tabela>
+                registros={usuariosFormatados}></Tabela>
             </div>
         </body>
     )
