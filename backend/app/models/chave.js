@@ -6,7 +6,8 @@ module.exports = {
         inner join usuario u on ch.usuario = u.id
         inner join cargo cg on u.cod_cargo = cg.id
         inner join imobiliaria i on cg.cod_imobiliaria = i.id
-        where i.id =  ${id_imobiliaria}`
+        where i.id =  ${id_imobiliaria}
+        ORDER BY ch.situacao DESC`
         connection.query(sql, callback);
     },
 
