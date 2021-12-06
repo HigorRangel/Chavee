@@ -61,7 +61,6 @@ const ChavesProvider = (props) =>{
             complemento:event.target.formComplementoCad.value,
             finalidade:event.target.formFinalidadeImovelCad.value,
             categoria_imovel:event.target.formCategoriaImovelCad.value,
-            cod_interno:null,
             cod_imovel:event.target.formCodigoImovelCad.value,
             observacao:event.target.formObservacaoCad.value,
             usuario:token.id,
