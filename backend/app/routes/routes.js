@@ -1,7 +1,7 @@
 const app = require('../../config/server');
 const {check, validationResult } = require("express-validator");
 const { verifyJWT } = require("../../utils");
-const { criarImobiliaria,listarImobiliarias } = require("../controllers/imobiliaria");
+const { criarImobiliaria,listarImobiliarias, atualizarImobiliaria } = require("../controllers/imobiliaria");
 const { listarChaves, inserirChave, atualizarChave } = require("../controllers/chave");
 const { listarCargos, inserirCargo, atualizarCargo } = require('../controllers/cargo');
 const { listarUsuarios, inserirUsuario, atualizarUsuario, loginController } = require('../controllers/usuario');
@@ -17,6 +17,12 @@ module.exports = {
     imobiliariaInserir:function(){
         app.post("/imobiliaria/inserir",function(req,res){
             criarImobiliaria(app,req,res);
+        })
+    },
+
+    imobiliariaAtualizar:function(){
+        app.put("/imobiliaria/atualizar/:id_imobiliaria",verifyJWT, function(req,res){
+            atualizarImobiliaria(app,req,res);
         })
     },
 

@@ -52,7 +52,6 @@ create table chave(
     situacao int not null default 1,
     finalidade int not null,
     categoria_imovel int not null,
-    cod_interno varchar(10),
     cod_imovel varchar(10),
     observacao varchar(256),
     usuario int not null,

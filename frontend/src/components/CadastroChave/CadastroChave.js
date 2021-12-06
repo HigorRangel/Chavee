@@ -76,8 +76,8 @@ const CadastroChave = ({props}) => {
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={3}>
-                                                <Form.Group controlId="formPontoReferenciaCad">
-                                                    <Form.Label>Ponto de Referência</Form.Label>
+                                                <Form.Group controlId="formObservacaoCad">
+                                                    <Form.Label>Observações</Form.Label>
                                                     <Form.Control required type="text" placeholder="Ex: Ao lado do supermercado" maxLength = "50"></Form.Control>
                                                 </Form.Group>
                                             </Col>

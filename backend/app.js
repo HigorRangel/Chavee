@@ -3,6 +3,7 @@ const routes = require('./app/routes/routes')
 
 routes.imobiliariasListar(app);
 routes.imobiliariaInserir(app);
+routes.imobiliariaAtualizar(app);
 
 routes.chavesListar(app);
 routes.chaveInserir(app);

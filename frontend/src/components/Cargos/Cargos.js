@@ -17,11 +17,11 @@ const Cargos = ({props}) => {
                 </div>
                 
                 <Tabela colunas={[
-                    {nome: "Código", proporcao: 20, alinhamento: "center"},
-                    {nome: "Nome do cargo", proporcao: 60, alinhamento: "left"},
-                    {nome: "Nível de acesso", proporcao: 10, alinhamento: "center"},
-                    {nome: "Situação", proporcao: 10, alinhamento: "center"},
-                    {nome: "Ações", proporcao: 10, alinhamento: "center"},
+                    {nome: "Código", proporcao: 10, alinhamento: "center"},
+                    {nome: "Nome do cargo", proporcao: 45, alinhamento: "left"},
+                    {nome: "Nível de acesso", proporcao: 15, alinhamento: "center"},
+                    {nome: "Situação", proporcao: 15, alinhamento: "center"},
+                    {nome: "Ações", proporcao: 15, alinhamento: "center"},
                 ]}
                 registros={cargos} linkUpdate={"/cadastro-cargo/"} funcaoDelete={deleteCargoHandler}></Tabela>
             </div>

@@ -2,7 +2,7 @@ let sql = "";
 
 module.exports = {
     getCargosByImobiliariaId: function (id_imobiliaria,connection,callback){
-        sql=`SELECT id,descricao,nivel_acesso,situacao from cargo WHERE cod_imobiliaria = ${id_imobiliaria} `;
+        sql=`SELECT id,descricao,nivel_acesso,situacao from cargo WHERE cod_imobiliaria = ${id_imobiliaria} ORDER BY situacao DESC`;
         connection.query(sql,callback)
     },
 

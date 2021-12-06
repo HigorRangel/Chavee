@@ -15,6 +15,7 @@ const CadastroUsuario = ({props}) => {
 
     
     let cargos_ativos = Object.values(cargos).filter((cargo) => cargo.situacao === 1)
+    
     return(
         <body>
             <div className="conteudo">
@@ -29,25 +30,25 @@ const CadastroUsuario = ({props}) => {
                                             <Col xs={2}>
                                                 <Form.Group controlId="usuarioNome">
                                                     <Form.Label>Primeiro Nome</Form.Label>
-                                                    <Form.Control required type="name" placeholder="Ex: João" maxLength = "25"></Form.Control>
+                                                    <Form.Control required type="text" placeholder="Ex: João" maxLength = "25"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={3}>
                                                 <Form.Group controlId="usuarioNomeMeio">
                                                     <Form.Label>Nome(s) do Meio</Form.Label>
-                                                    <Form.Control required type="name" placeholder="Ex: da Silva" maxLength = "25"></Form.Control>
+                                                    <Form.Control required type="text" placeholder="Ex: da Silva" maxLength = "25"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={2}>
                                                 <Form.Group controlId="usuarioNomeUltimo">
                                                     <Form.Label>Último Nome</Form.Label>
-                                                    <Form.Control required type="name" placeholder="Ex: Oliveira" maxLength = "25"></Form.Control>
+                                                    <Form.Control required type="text" placeholder="Ex: Oliveira" maxLength = "25"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={5}>
                                                 <Form.Group controlId="usuarioEmail">
                                                     <Form.Label>E-mail</Form.Label>
-                                                    <Form.Control required type="name" placeholder="Ex: oliveira.silva@hotmail.com" maxLength = "40"></Form.Control>
+                                                    <Form.Control required type="email" placeholder="Ex: oliveira.silva@hotmail.com" maxLength = "40"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                         </Row>
@@ -72,7 +73,7 @@ const CadastroUsuario = ({props}) => {
                                             <Col xs={3}>
                                                 <Form.Group controlId="usuarioContato">
                                                     <Form.Label>Contato</Form.Label>
-                                                    <Form.Control required type="name" placeholder="Ex: (19) 9 9000-0000" maxLength = "11"></Form.Control>
+                                                    <Form.Control required type="text" placeholder="Ex: (19) 9 9000-0000" maxLength = "11"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={4}>

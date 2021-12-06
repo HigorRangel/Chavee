@@ -1,6 +1,8 @@
 import React,{ useContext,useState, useEffect} from 'react';
 import axios from 'axios';
 import { LoginContext } from './LoginProvider';
+import { useHistory } from 'react-router-dom';
+import validator from 'validator';
 export const UsuariosContext = React.createContext();
 
 const UsuariosProvider = (props) =>{
@@ -12,6 +14,8 @@ const UsuariosProvider = (props) =>{
     if(token){
         id = token.id_imobiliaria
     }
+
+    let history = useHistory();
 
     useEffect(()=>{
         if(token){
@@ -46,7 +50,42 @@ const UsuariosProvider = (props) =>{
         setUsuariosFormatados(usuariosNovos)
     },[usuarios])
     
-    const onUsuarioSubmit = (event) =>{}
+    const onUsuarioSubmit = (event) =>{
+        event.preventDefault();
+
+        if(event.target.usuarioSenha.value === event.target.usuarioConfirmaSenha.value){
+            if(event.target.usuarioSenha.value.length<=8){
+                if(validator.isEmail(event.target.usuarioEmail.value)){
+                    let object = {
+                        primeiro_nome: event.target.usuarioNome.value,
+                        nomes_meio: event.target.usuarioNomeMeio.value,
+                        ultimo_nome: event.target.usuarioNomeUltimo.value,
+                        email: event.target.usuarioEmail.value,
+                        contato: event.target.usuarioContato.value,
+                        senha: event.target.usuarioSenha.value,
+                        cod_cargo:event.target.usuarioCargo.value
+                    }
+
+                    axios
+                        .post('http://localhost:3003/usuario/inserir',object,{
+                            headers: {
+                              Authorization: token.token,
+                            }
+                        })
+                        .then((response) => {
+                            console.log(response.data);
+                            history.push("/usuarios");
+                        });
+                }else{
+                    console.log("Email inválido");
+                }
+            }else{
+                console.log("Senhas precisa ser de no máximo 8 caracteres");
+            }
+        }else{
+            console.log("Senhas não coincidem");
+        }
+    }
 
     return(
         <UsuariosContext.Provider value={{ usuarios: usuarios,usuariosFormatados:usuariosFormatados, onUsuarioSubmit:onUsuarioSubmit}}>

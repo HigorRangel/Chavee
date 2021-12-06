@@ -60,8 +60,29 @@ const ImobiliariasProvider = (props) =>{
         }
     }
 
+    const onImobiliariaUpdate = (event)=>{
+        event.preventDefault();
+
+        let object = {
+            nome_fantasia: event.target.formNomeFantasia.value,
+            razao_social: event.target.formRazaoSocial.value,
+            cnpj: event.target.formCNPJ.value,
+        }
+
+        axios
+            .put('http://localhost:3003/imobiliaria/atualizar/'+token.id_imobiliaria, object,{
+                headers: {
+                    Authorization: token.token,
+                }
+            })
+            .then((response) => {
+                console.log(response.data);
+                history.push("/dashboard");
+            });
+    }
+
     return(
-        <ImobiliariasContext.Provider value={{ imobiliarias: imobiliarias, onImobiliariaSubmit: onImobiliariaSubmit}}>
+        <ImobiliariasContext.Provider value={{ imobiliarias: imobiliarias, onImobiliariaSubmit: onImobiliariaSubmit, onImobiliariaUpdate: onImobiliariaUpdate}}>
             {props.children}
         </ImobiliariasContext.Provider>
     )
