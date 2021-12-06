@@ -5,7 +5,7 @@ import { ChavesContext } from "../../context/ChavesProvider";
 import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
 
 const Chaves = ({props}) => {
-    const {chavesFormatadas} = useContext(ChavesContext);
+    const {chavesFormatadas, deleteChaveHandler} = useContext(ChavesContext);
 
     return(
         <body>
@@ -23,7 +23,7 @@ const Chaves = ({props}) => {
                     {nome: "Ações",  proporcao: 10, alinhamento: "center"}
                     
                 ]}
-                registros={chavesFormatadas}></Tabela>
+                registros={chavesFormatadas} funcaoDelete={deleteChaveHandler} linkUpdate={"/cadastro-chave/"}></Tabela>
             </div>
         </body>
     )

@@ -24,7 +24,7 @@ module.exports = {
     updateChave:function (id_chave, body,connection, callback){
         sql=`UPDATE chave SET rua =  ${body.rua}, bairro = ${body.bairro}, cidade = ${body.cidade},
         estado = ${body.estado}, numero = ${body.numero}, complemento = ${body.complemento}, situacao = ${body.situacao},
-        finalidade= ${body.finalidade}, categoria_imovel = ${body.categoria_imovel}, cod_interno = ${body.cod_interno},
+        finalidade= ${body.finalidade}, categoria_imovel = ${body.categoria_imovel},
         cod_imovel = ${body.cod_imovel}, observacao = ${body.observacao}, proprietario = ${body.proprietario}, contato = ${body.contato}
         WHERE id = ${id_chave}`;
         connection.query(sql,callback);
