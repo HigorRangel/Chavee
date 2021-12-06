@@ -23,6 +23,10 @@ const CadastroCargo = ({props}) => {
         if(token.nivel_acesso >1){
             history.push("/permissao");
         }
+
+        if(id && !cargo){
+            history.push("/permissao");
+        }
     }
 
     if(cargo){
