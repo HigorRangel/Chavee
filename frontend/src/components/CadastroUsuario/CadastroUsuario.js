@@ -25,6 +25,10 @@ const CadastroUsuario = ({props}) => {
         if(token.nivel_acesso >1){
             history.push("/permissao");
         }
+
+        if(id && !usuario){
+            history.push("/permissao");
+        }
     }
     
     if(usuario){
