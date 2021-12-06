@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Staatliches&display=swap');
+
 
 #body-pagina-n-encontrada {
     display: flex;
@@ -12,15 +13,25 @@
 
 #div-pagina-n-encontrada {
     display: flex;
-        padding:24px;
+    padding:24px;
     align-items:center;
 }
 
 #txt-pg-n-encontrada {
-    font-size:3em;
+    font-size:5em;
+    letter-spacing: .1em;
+    color: #0B2149;
+    opacity: .7;
+    font-weight: bolder;
+    font-family: 'Staatliches', cursive;
 }
 
 
 #txt-404 {
     font-family: 'Press Start 2P', cursive;
+    font-size: 5em;
+    margin-top: 0.5em;
+    color: #F9A364;
+    text-shadow: 2px 2px 3px black;
+    
 }
