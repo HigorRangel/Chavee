@@ -47,7 +47,7 @@ module.exports.loginController =  async function (app, req, res, errors) {
 
     getUsuarioByEmail(req.body.email, connection, function (error, result) {
       if (error) {
-        res.send(message);
+        res.send("Não foram encontradas contas com este e-mail.");
       } else {
         if (result[0]) {
           if(md5(req.body.senha) == result[0].senha){

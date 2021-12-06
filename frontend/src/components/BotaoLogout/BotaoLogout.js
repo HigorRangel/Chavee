@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Button} from 'react-bootstrap'
 export default class UserLogout extends Component {
  
  logout = () => {
@@ -8,7 +9,8 @@ export default class UserLogout extends Component {
  
   render() {
     return (
-      <button onClick={this.logout}>Logout</button>
+      <div>
+        <Button onClick={this.logout}>Logout</Button> </div>
     )
   }
 }
