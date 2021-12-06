@@ -3,9 +3,19 @@ import "./Usuarios.css";
 import Tabela from "../Tabela/Tabela";
 import { UsuariosContext } from "../../context/UsuariosProvider";
 import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
+import { useHistory } from 'react-router-dom';
+import { LoginContext } from "../../context/LoginProvider";
 
 const Usuarios = ({props}) => {
     const {usuariosFormatados} = useContext(UsuariosContext);
+    const {token} = useContext(LoginContext);
+    let history = useHistory();
+
+    if(token){
+        if(token.nivel_acesso >1){
+            history.push("/permissao");
+        }
+    }
     return(
         <body>
             <div className="conteudo">

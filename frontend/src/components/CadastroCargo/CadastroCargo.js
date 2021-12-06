@@ -5,12 +5,25 @@ import PainelSombreado from "../PainelSombreado/PainelSombreado";
 import niveisAcesso from "../../images/niveis-acesso.png";
 import { CargosContext } from "../../context/CargosProvider";
 import { useParams } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
+import { LoginContext } from "../../context/LoginProvider";
+
+
 
 const CadastroCargo = ({props}) => {
     const {onCargoSubmit, cargos, onCargoUpdateSubmit} = useContext(CargosContext);
     const {id} = useParams();
+    const {token} = useContext(LoginContext);
+    let history = useHistory();
+
     let updateScenario = false;
     let cargo = id ? Object.values(cargos).find(cargo => cargo.id.toString() === id.toString()): null;
+
+    if(token){
+        if(token.nivel_acesso >1){
+            history.push("/permissao");
+        }
+    }
 
     if(cargo){
         updateScenario= true;

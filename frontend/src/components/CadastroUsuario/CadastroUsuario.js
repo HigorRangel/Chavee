@@ -6,13 +6,21 @@ import SecaoSombreada from "../SecaoSombreada/SecaoSombreada"
 import Tabela from "../Tabela/Tabela"
 import { UsuariosContext } from "../../context/UsuariosProvider";
 import { CargosContext } from "../../context/CargosProvider";
-
+import { useHistory } from 'react-router-dom';
+import { LoginContext } from "../../context/LoginProvider";
 
 
 const CadastroUsuario = ({props}) => {
     const {onUsuarioSubmit} = useContext(UsuariosContext);
     const { cargos } = useContext(CargosContext);
+    const {token} = useContext(LoginContext);
+    let history = useHistory();
 
+    if(token){
+        if(token.nivel_acesso >1){
+            history.push("/permissao");
+        }
+    }
     
     let cargos_ativos = Object.values(cargos).filter((cargo) => cargo.situacao === 1)
     
