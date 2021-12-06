@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+#body-pagina-n-encontrada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 90vh;
+    width: 100%;
+}
+
+#div-pagina-n-encontrada {
+    display: flex;
+        padding:24px;
+    align-items:center;
+}
+
+#txt-pg-n-encontrada {
+    font-size:3em;
+}
+
+
+#txt-404 {
+    font-family: 'Press Start 2P', cursive;
+}

@@ -7,7 +7,8 @@ import {Container, Navbar} from "react-bootstrap"
 import logo from "../../images/Logo.svg";
 import { LoginContext } from "../../context/LoginProvider";
 import { useHistory } from "react-router-dom";
-import BotaoLogout from "../BotaoLogout/BotaoLogout";
+import {Button} from 'react-bootstrap'
+
 function Header(){
     let location = useLocation();
     let mostrar = location.pathname.match("login") ;
@@ -36,10 +37,16 @@ function Header(){
                         width="170"
                         height="30"
                         className="d-inline-block align-top"
-                        />{' '}<h3>{nome_usuario}</h3>
-                        
+                        />{' '}
                     </Navbar.Brand>
-                    <BotaoLogout/>
+                    <div className="d-flex flex-column align-items-end">
+                        <p className="text-white mb-0 fw-bold">{nome_usuario.toUpperCase()}</p>
+                        <Button onClick={ () => {
+                                sessionStorage.removeItem('token')
+                                window.location.href = "/login";
+                            }
+                        } className="p-0">Sair</Button>
+                    </div>
                     </Container>
                 </Navbar>
             </div>)

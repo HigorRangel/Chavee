@@ -1,8 +1,11 @@
+import './PaginaErro.css'
+
 const PaginaErro  = (props) => {
     return(
-        <body>
+        <body id={"body-pagina-n-encontrada"}>
             <div className="conteudo">
-                <h3>404 - PÁGINA NÃO ENCONTRADA</h3>
+                <h1 id="txt-pg-n-encontrada">PÁGINA NÃO ENCONTRADA</h1>
+                <h2 id="txt-404" className={"text-center"}>404</h2>
             </div>
         </body>
     )
