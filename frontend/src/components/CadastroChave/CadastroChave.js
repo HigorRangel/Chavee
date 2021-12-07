@@ -17,7 +17,16 @@ const CadastroChave = ({props}) => {
     let updateScenario = false;
     let chave = id ? Object.values(chaves).find(chave => chave.id.toString() === id.toString()): null;
 
-    console.log(chave);
+    if(token){
+        if(token.nivel_acesso >3){
+            history.push("/permissao");
+        }
+
+        if(id && !chave){
+            history.push("/permissao");
+        }
+    }
+
     if(chave){
         if(token.nivel_acesso > 2){
             history.push("/permissao");
@@ -26,11 +35,6 @@ const CadastroChave = ({props}) => {
         updateScenario= true;
     }
 
-    if(token){
-        if(token.nivel_acesso >3){
-            history.push("/permissao");
-        }
-    }
 
     return(
         <body>
@@ -97,7 +101,7 @@ const CadastroChave = ({props}) => {
                                             <Col xs={3}>
                                                 <Form.Group controlId="formObservacaoCad">
                                                     <Form.Label>Observações</Form.Label>
-                                                    <Form.Control required type="text" placeholder="Ex: Ao lado do supermercado" maxLength = "50"></Form.Control>
+                                                    <Form.Control type="text" placeholder="Ex: Ao lado do supermercado" maxLength = "50"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                             <Col xs={3}>

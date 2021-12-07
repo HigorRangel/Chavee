@@ -33,7 +33,7 @@ function Tabela({colunas, registros, funcaoDelete, linkUpdate, linkOperacao}){
                                 </thead>
                                 <tbody>
                                 {Object.values(registros).map((registro) => {
-                                            let botaoOperacao = (linkOperacao ? <BotaoOperacao link={linkOperacao + registro.id}></BotaoOperacao> : null);
+                                            let botaoOperacao = (linkOperacao ? <BotaoOperacao blocked={registro.situacao === 1 ? true : false} link={registro.chave ? linkOperacao + registro.chave+"/" + registro.id : linkOperacao + registro.id}></BotaoOperacao> : null);
                                             let botaoUpdate = (linkUpdate ? <BotaoUpdate  link={linkUpdate + registro.id}></BotaoUpdate> : null);
                                             let botaoDelete = (funcaoDelete ? <BotaoDelete click={() => funcaoDelete(registro)}></BotaoDelete> : null);
                                             let bordaStatus = (Object.keys(registro).includes("situacao") ? <td><div className={(registro["situacao"] === 1? "bordaStatusTrue" : "bordaStatusFalse")}></div></td> : null);

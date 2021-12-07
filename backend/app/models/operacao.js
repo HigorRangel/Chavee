@@ -1,5 +1,3 @@
-const { connect } = require("../../config/server");
-
 let sql = "";
 
 module.exports = {
@@ -13,7 +11,8 @@ module.exports = {
         inner join usuario u on o.cod_usuario = u.id
         inner join cargo c on u.cod_cargo = c.id
         inner join imobiliaria i on c.cod_imobiliaria = i.id
-        where i.id = ${id_imobiliaria}`;
+        where i.id = ${id_imobiliaria}
+        order by o.situacao DESC`;
         connection.query(sql,callback);
     },
 

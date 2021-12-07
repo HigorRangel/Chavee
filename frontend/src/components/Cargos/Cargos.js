@@ -4,10 +4,19 @@ import Tabela from "../Tabela/Tabela";
 import { CargosContext, deleteCargoHandler } from "../../context/CargosProvider";
 import BotaoDelete from "../BotaoDelete/BotaoDelete";
 import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
+import { useHistory } from 'react-router-dom';
+import { LoginContext } from "../../context/LoginProvider";
 
 const Cargos = ({props}) => {
     const {cargos, deleteCargoHandler} = useContext(CargosContext);
+    const {token} = useContext(LoginContext);
+    let history = useHistory();
 
+    if(token){
+        if(token.nivel_acesso >1){
+            history.push("/permissao");
+        }
+    }
     return(
         <body>
             <div className="conteudo">

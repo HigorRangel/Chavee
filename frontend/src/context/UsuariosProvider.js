@@ -43,8 +43,7 @@ const UsuariosProvider = (props) =>{
                 nome_completo:usuarios[i].primeiro_nome+" " + nomesMeio + " " + usuarios[i].ultimo_nome,
                 email:usuarios[i].email,
                 contato:usuarios[i].contato,
-                cargo:usuarios[i].descricao,
-                situacao:usuarios[i].situacao
+                cargo:usuarios[i].descricao
             })
         }
         setUsuariosFormatados(usuariosNovos)
@@ -87,8 +86,50 @@ const UsuariosProvider = (props) =>{
         }
     }
 
+    const onUsuarioUpdateSubmit = (event) =>{
+        event.preventDefault();
+
+        if(event.target.usuarioSenha.value === event.target.usuarioConfirmaSenha.value){
+            if(event.target.usuarioSenha.value.length<=8){
+                if(validator.isEmail(event.target.usuarioEmail.value)){
+                    let object = {
+                        primeiro_nome: event.target.usuarioNome.value,
+                        nomes_meio: event.target.usuarioNomeMeio.value,
+                        ultimo_nome: event.target.usuarioNomeUltimo.value,
+                        email: event.target.usuarioEmail.value,
+                        senha: event.target.usuarioSenha.value,
+                        contato: event.target.usuarioContato.value,
+                        situacao:1,
+                        cod_cargo:event.target.usuarioCargo.value
+                    }
+
+                    axios
+                        .put('http://localhost:3003/usuario/atualizar/'+event.target.usuarioID.value,object,{
+                            headers: {
+                              Authorization: token.token,
+                            }
+                        })
+                        .then((response) => {
+                            if(event.target.usuarioID.value == token.id){
+                                sessionStorage.removeItem('token')
+                                history.push("/login");
+                            }else{
+                                history.push("/usuarios");
+                            }
+                        });
+                }else{
+                    console.log("Email inválido");
+                }
+            }else{
+                console.log("Senhas precisa ser de no máximo 8 caracteres");
+            }
+        }else{
+            console.log("Senhas não coincidem");
+        }
+    }
+
     return(
-        <UsuariosContext.Provider value={{ usuarios: usuarios,usuariosFormatados:usuariosFormatados, onUsuarioSubmit:onUsuarioSubmit}}>
+        <UsuariosContext.Provider value={{ usuarios: usuarios,usuariosFormatados:usuariosFormatados, onUsuarioSubmit:onUsuarioSubmit, onUsuarioUpdateSubmit:onUsuarioUpdateSubmit}}>
             {props.children}
         </UsuariosContext.Provider>
     )

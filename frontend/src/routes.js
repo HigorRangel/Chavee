@@ -61,19 +61,19 @@ const routes = () => {
             <CadastroUsuario/>
         </Route>
 
-        <Route path="/cadastro-chave/:id" exact>
-            <CadastroChave/>
+        <Route path="/cadastro-usuario/:id" exact>
+            <CadastroUsuario/>
         </Route>
 
         <Route path="/cadastro-chave" exact>
             <CadastroChave/>
         </Route>
 
-        <Route path="/cadastro-operacao/:id" exact>
-            <CadastroOperacao/>
+        <Route path="/cadastro-chave/:id" exact>
+            <CadastroChave/>
         </Route>
 
-        <Route path="/cadastro-operacao" exact>
+        <Route path="/cadastro-operacao/:id_chave/:id_operacao?" exact>
             <CadastroOperacao/>
         </Route>
 

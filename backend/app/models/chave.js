@@ -29,5 +29,10 @@ module.exports = {
         cod_imovel = ${body.cod_imovel}, observacao = ${body.observacao}, proprietario = ${body.proprietario}, contato = ${body.contato}
         WHERE id = ${id_chave}`;
         connection.query(sql,callback);
+    },
+
+    updateChaveSituacao:function(id_chave,body,connection,callback){
+        sql= `UPDATE chave SET situacao = ${body.situacao} WHERE id = ${id_chave}`;
+        connection.query(sql,callback);
     }
 }
