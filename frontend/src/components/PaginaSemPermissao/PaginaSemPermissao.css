@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Staatliches&display=swap');
+
+@font-face {
+    font-family: 'century-gothic'; /*a name to be used later*/
+    src: url('https://use.typekit.net/oov2wcw.css'); /*URL to font*/
+}
+
+#body-pagina-s-permissao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 90vh;
+    width: 100%;
+}
+
+#div-pagina-s-permissao {
+    display: flex;
+    padding:24px;
+    align-items:center;
+}
+
+#txt-pg-s-permissao {
+    font-size:5em;
+    letter-spacing: .1em;
+    color: #EB6963;
+    font-weight: bolder;
+    font-family: 'Staatliches', cursive;
+}
+
+
+#txt-s-permissao{
+    color: #0B2149;
+    font-family: Century Gothic, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+ }
+
+
+#div-conteudo-s-permissao img{
+    width: 20em;
+}
+
+#div-conteudo-s-permissao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
