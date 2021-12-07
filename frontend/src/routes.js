@@ -73,7 +73,7 @@ const routes = () => {
             <CadastroChave/>
         </Route>
 
-        <Route path="/cadastro-operacao/:id" exact>
+        <Route path="/cadastro-operacao/:id_chave/:id_operacao?" exact>
             <CadastroOperacao/>
         </Route>
 

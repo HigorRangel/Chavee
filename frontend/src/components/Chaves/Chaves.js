@@ -23,7 +23,7 @@ const Chaves = ({props}) => {
                     {nome: "Ações",  proporcao: 10, alinhamento: "center"}
                     
                 ]}
-                registros={chavesFormatadas} funcaoDelete={deleteChaveHandler} linkUpdate={"/cadastro-chave/"}></Tabela>
+                registros={chavesFormatadas} funcaoDelete={deleteChaveHandler} linkUpdate={"/cadastro-chave/"} linkOperacao={"/cadastro-operacao/"}></Tabela>
             </div>
         </body>
     )

@@ -8,6 +8,7 @@ routes.imobiliariaAtualizar(app);
 routes.chavesListar(app);
 routes.chaveInserir(app);
 routes.chaveAtualizar(app);
+routes.chaveSituacao(app);
 
 routes.cargosListar(app);
 routes.cargoInserir(app);

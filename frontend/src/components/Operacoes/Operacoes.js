@@ -2,11 +2,21 @@ import React, { useContext } from "react";
 import "./Operacoes.css";
 import Tabela from "../Tabela/Tabela"
 import { OperacoesContext } from "../../context/OperacoesProvider";
-import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
+import { LoginContext } from "../../context/LoginProvider";
+import { useHistory } from "react-router-dom";
 
 
 const Operacoes = ({props}) => {
     const {operacoesFormatadas} = useContext(OperacoesContext);
+    const {token} = useContext(LoginContext);
+    let history = useHistory();
+    
+    if(token){
+        if(token.nivel_acesso >2){
+            history.push("/permissao");
+        }
+    }
+
     return(
         <body>
             <div className="conteudo">
@@ -21,12 +31,12 @@ const Operacoes = ({props}) => {
                     {nome: "Descrição", proporcao: 20, alinhamento: "left"},
                     {nome: "Nome do cliente", proporcao: 10, alinhamento: "left"},
                     {nome: "Data da Entrega", proporcao: 10, alinhamento: "center"},
-                    {nome: "Data de Retirada", proporcao: 10, alinhamento: "center"},
+                    {nome: "Data da Devolução", proporcao: 10, alinhamento: "center"},
                     {nome: "Situação", proporcao: 5, alinhamento: "center"},
                     {nome: "Ações",  proporcao: 10, alinhamento: "center"}
                     
                 ]}
-                registros={operacoesFormatadas}></Tabela>
+                registros={operacoesFormatadas} linkOperacao={"/cadastro-operacao/"}></Tabela>
             </div>
         </body>
     )

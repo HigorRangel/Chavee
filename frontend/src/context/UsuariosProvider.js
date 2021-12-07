@@ -112,8 +112,10 @@ const UsuariosProvider = (props) =>{
                         .then((response) => {
                             if(event.target.usuarioID.value == token.id){
                                 sessionStorage.removeItem('token')
-                                window.location.href = "/login";
-                              }
+                                history.push("/login");
+                            }else{
+                                history.push("/usuarios");
+                            }
                         });
                 }else{
                     console.log("Email inválido");

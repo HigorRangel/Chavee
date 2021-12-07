@@ -82,8 +82,8 @@ const CadastroImobiliaria = ({props}) => {
                                     
                                     <Col xs={3}>
                                         <Form.Group as={Col} controlId="formNomeDoMeio">
-                                        <Form.Label>Nome do Meio</Form.Label>
-                                        <Form.Control required type="text" placeholder="Ex: da Silva" maxLength = "25"/>
+                                        <Form.Label>Nome(s) do Meio</Form.Label>
+                                        <Form.Control type="text" placeholder="Ex: da Silva" maxLength = "25"/>
                                         </Form.Group>
                                     </Col>
             

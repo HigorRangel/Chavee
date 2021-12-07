@@ -94,7 +94,7 @@ const ChavesProvider = (props) =>{
             finalidade: event.target.formFinalidadeImovelCad.value,
             categoria_imovel: event.target.formCategoriaImovelCad.value,
             cod_imovel: event.target.formCodigoImovelCad.value,
-            observacao: event.target.formPontoReferenciaCad.value,
+            observacao: event.target.formObservacaoCad.value,
         }
         axios
             .put("http://localhost:3003/chave/atualizar/"+event.target.chaveID.value,object,{
@@ -108,31 +108,23 @@ const ChavesProvider = (props) =>{
     }
 
     const deleteChaveHandler = (chave) =>{
-        let object = {
-            proprietario: chave.proprietario,
-            contato: chave.contato,
-            rua: chave.rua,
-            bairro: chave.bairro,
-            cidade: chave.cidade,
-            estado: chave.estado,
-            numero: chave.numero,
-            complemento: chave.complemento,
-            situacao: 0,
-            finalidade: chave.finalidade,
-            categoria_imovel: chave.categoria_imovel,
-            cod_imovel: chave.cod_imovel,
-            observacao: chave.observacao,
-            usuario: chave.usuario
+        if(token.nivel_acesso>2){
+            history.push("/permissao");
+        }else{
+            let object = {
+                situacao: 0
+            }
+
+            axios
+                .put("http://localhost:3003/chave/situacao/"+chave.id,object,{
+                    headers: {
+                    Authorization: token.token,
+                    }
+                })
+                .then((response) => {
+                    history.push("/chaves");
+                });
         }
-        axios
-            .put("http://localhost:3003/chave/atualizar/"+chave.id,object,{
-                headers: {
-                  Authorization: token.token,
-                }
-            })
-            .then((response) => {
-                history.push("/chaves");
-            });
     }
     return(
         <ChavesContext.Provider value={{chaves: chaves, chavesFormatadas:chavesFormatadas, onChaveSubmit:onChaveSubmit, deleteChaveHandler:deleteChaveHandler, onChaveUpdateSubmit:onChaveUpdateSubmit}}>
