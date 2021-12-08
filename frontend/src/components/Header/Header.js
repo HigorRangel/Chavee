@@ -51,7 +51,7 @@ function Header(){
                         <p className="text-white mb-0 fw-bold">{nome_usuario.toUpperCase()}</p>
                         <Button onClick={ () => {
                                 sessionStorage.removeItem('token')
-                                window.location.href = "/login";
+                                history.push("/login");
                             }
                         } className="p-0">Sair</Button>
                     </div>

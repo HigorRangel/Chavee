@@ -8,6 +8,7 @@ import { OperacoesContext } from "../../context/OperacoesProvider";
 import { UsuariosContext } from "../../context/UsuariosProvider";
 import { ChavesContext } from "../../context/ChavesProvider";
 import { CargosContext } from "../../context/CargosProvider";
+import { useHistory, Link } from "react-router-dom";
 
 const Dashboard = ({props}) => {
     const {operacoes} = useContext(OperacoesContext);
@@ -18,7 +19,7 @@ const Dashboard = ({props}) => {
     var operacoesAtivas = operacoes.filter(function( operacao ) {
         return operacao.situacao === 1;
     });
-
+    let history = useHistory();
     return(
         <body>        
             <div className="conteudo">
@@ -27,48 +28,58 @@ const Dashboard = ({props}) => {
                         <h4 className="text-center text-secondary mt-3 mb-3">Dashboard</h4>
 
                         <Col xs={3} className="ps-0">
-                            <PainelSombreado elemento={
-                                <div className="py-2">
-                                    <h1 className="dadosDashboard">{operacoesAtivas.length}</h1>
-                                    <h4 className="text-center text-secondary">Empréstimos Ativos</h4>
-                                </div>
-                            }></PainelSombreado>
+                            <Link to="/operacoes" className="text-decoration-none">
+                                <PainelSombreado elemento={
+                                    <div className="py-2">
+                                        <h1 className="dadosDashboard">{operacoesAtivas.length}</h1>
+                                        <h4 className="text-center text-secondary">Empréstimos Ativos</h4>
+                                    </div>
+                                }></PainelSombreado>
+                            </Link>
                         </Col>
                         <Col xs={3} className="pe-0">
-                            <PainelSombreado elemento={
-                                <div className="py-2">
-                                    <h1 className="dadosDashboard">{operacoes.length -  operacoesAtivas.length}</h1>
-                                    <h4 className="text-center text-secondary">Empréstimos Finalizados</h4>
-                                </div>
-                            }></PainelSombreado>
+                            <Link to="/operacoes" className="text-decoration-none">
+
+                                <PainelSombreado elemento={
+                                    <div className="py-2">
+                                        <h1 className="dadosDashboard">{operacoes.length -  operacoesAtivas.length}</h1>
+                                        <h4 className="text-center text-secondary">Empréstimos Finalizados</h4>
+                                    </div>
+                                }></PainelSombreado>
+                            </Link>
                         </Col>
                         <Col xs={3} className="">
-                            <PainelSombreado elemento={
-                                <div className="py-2">
-                                    <h1 className="dadosDashboard">{chaves.filter(function(chave){return chave.situacao ===1}).length}</h1>
-                                    <h4 className="text-center text-secondary">Chaves Disponíveis</h4>
-                                </div>
-                            }></PainelSombreado>
+                            <Link to="/chaves" className="text-decoration-none">
+                                <PainelSombreado elemento={
+                                    <div className="py-2">
+                                        <h1 className="dadosDashboard">{chaves.filter(function(chave){return chave.situacao ===1}).length}</h1>
+                                        <h4 className="text-center text-secondary">Chaves Disponíveis</h4>
+                                    </div>
+                                }></PainelSombreado>
+                            </Link>
                         </Col>
                         
                     </Row>
                     <Row className="justify-content-center">
                         <Col xs={3} className="ps-0">
-                            
-                            <PainelSombreado elemento={
-                                <div className="py-2">
-                                    <h1 className="dadosDashboard">{usuarios.length}</h1>
-                                    <h4 className="text-center text-secondary">Usuários Cadastrados</h4>
-                                </div>
-                            }></PainelSombreado>
+                            <Link to="/usuarios" className="text-decoration-none">
+                                <PainelSombreado elemento={
+                                    <div className="py-2">
+                                        <h1 className="dadosDashboard">{usuarios.length}</h1>
+                                        <h4 className="text-center text-secondary">Usuários Cadastrados</h4>
+                                    </div>
+                                }></PainelSombreado>
+                            </Link>
                         </Col>
                         <Col xs={3} className="">
-                            <PainelSombreado elemento={
-                                <div className="py-2">
-                                    <h1 className="dadosDashboard">{cargos.filter(function(cargo){return cargo.situacao===1}).length}</h1>
-                                    <h4 className="text-center text-secondary">Cargos</h4>
-                                </div>
-                            }></PainelSombreado>
+                        <Link to="/cargos" className="text-decoration-none">
+                                <PainelSombreado elemento={
+                                    <div className="py-2">
+                                        <h1 className="dadosDashboard">{cargos.filter(function(cargo){return cargo.situacao===1}).length}</h1>
+                                        <h4 className="text-center text-secondary">Cargos</h4>
+                                    </div>
+                                }></PainelSombreado>
+                        </Link>
                         </Col>
                         
                     </Row>
