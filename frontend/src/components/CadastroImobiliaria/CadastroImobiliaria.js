@@ -23,7 +23,7 @@ const CadastroImobiliaria = ({props}) => {
     }
 
     if(imobiliaria){
-        if(id !== token.id_imobiliaria){
+        if(id != token.id_imobiliaria){
             history.push("/permissao");
         }
         updateScenario = true;
