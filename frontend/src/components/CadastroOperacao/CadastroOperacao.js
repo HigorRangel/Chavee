@@ -1,6 +1,6 @@
 import React,{useContext} from "react";
 import "./CadastroOperacao.css";
-import {Form, Button, Container, Row, Col, Table, InputGroup} from "react-bootstrap"
+import {Form, Button, Container, Row, Col } from "react-bootstrap"
 import PainelSombreado from "../PainelSombreado/PainelSombreado"
 import { ChavesContext } from "../../context/ChavesProvider";
 import { OperacoesContext } from "../../context/OperacoesProvider";
@@ -19,14 +19,6 @@ const CadastroOperacao = ({props}) => {
     let emprestimoScenario = true;
     let chave = id_chave ? Object.values(chaves).find(chave => chave.id.toString() === id_chave.toString()): null;
     let operacao = id_operacao ? Object.values(operacoes).find(operacao => operacao.id.toString() === id_operacao.toString()): null;
-
-    //verificar se a chave da id na url é ativa ou inativa
-    // pra saber se é emprestimo ou devolução
-
-    //fazer um if ternario com o emprestimoScenario, no caso true,
-    //retorna o form abaixo mesmo, pra adicionar uma operacao no banco,
-    // no caso false, retorna um outro form, que vai atualizar a operação
-    //para realizar a devolução
 
     if(token){
         if(token.nivel_acesso >2){

@@ -1,8 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { faBriefcase, faHome, faKey, faBuilding, faClipboardList } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {Form, Button, Container, Row, Col, Table} from "react-bootstrap"
+import { Container, Row, Col, Table} from "react-bootstrap"
 import "./Tabela.css"
 import BotaoDelete from "../BotaoDelete/BotaoDelete";
 import BotaoUpdate from "../BotaoUpdate/BotaoUpdate";
