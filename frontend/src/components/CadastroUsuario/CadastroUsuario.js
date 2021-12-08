@@ -1,6 +1,6 @@
 import React,{useContext} from "react";
 import "./CadastroUsuario.css";
-import {Form, Button, Container, Row, Col, Table, InputGroup} from "react-bootstrap"
+import {Form, Button, Container, Row, Col, Table, InputGroup, Alert} from "react-bootstrap"
 import PainelSombreado from "../PainelSombreado/PainelSombreado"
 import SecaoSombreada from "../SecaoSombreada/SecaoSombreada"
 import Tabela from "../Tabela/Tabela"
@@ -48,6 +48,7 @@ const CadastroUsuario = ({props}) => {
                                  <div>
                                      <h4 className="text-center text-secondary  mb-4">{!updateScenario?"Cadastro de Usuário":"Atualização de Usuário"}</h4>
                                     <Form onSubmit={!updateScenario?onUsuarioSubmit:onUsuarioUpdateSubmit}>
+                                        <Alert className="d-none" id="alertaErroUsuario" variant={"danger"}></Alert>
                                         <Row className="mb-3">
                                             <Form.Group controlId="usuarioID"  className= "d-none">
                                                 <Form.Control defaultValue={updateScenario?usuario.id:null}></Form.Control>
