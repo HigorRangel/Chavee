@@ -1,9 +1,7 @@
 import React,{useContext} from "react";
 import "./CadastroChave.css";
-import {Form, Button, Container, Row, Col, Table, InputGroup} from "react-bootstrap"
-import PainelSombreado from "../PainelSombreado/PainelSombreado"
-import SecaoSombreada from "../SecaoSombreada/SecaoSombreada"
-import Tabela from "../Tabela/Tabela"
+import {Form, Button, Container, Row, Col} from "react-bootstrap";
+import PainelSombreado from "../PainelSombreado/PainelSombreado";
 import { ChavesContext } from "../../context/ChavesProvider";
 import { LoginContext } from "../../context/LoginProvider";
 import { useHistory, useParams } from "react-router-dom";

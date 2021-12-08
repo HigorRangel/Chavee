@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import "./Cargos.css";
 import Tabela from "../Tabela/Tabela";
-import { CargosContext, deleteCargoHandler } from "../../context/CargosProvider";
-import BotaoDelete from "../BotaoDelete/BotaoDelete";
+import { CargosContext } from "../../context/CargosProvider";
 import BotaoCadastro from "../BotaoCadastro/BotaoCadastro";
 import { useHistory } from 'react-router-dom';
 import { LoginContext } from "../../context/LoginProvider";

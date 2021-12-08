@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import "./Dashboard.css";
 import {} from "react-bootstrap"
-import {Form, Button, Container, Row, Col, Table, InputGroup} from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 import PainelSombreado from "../PainelSombreado/PainelSombreado"
-import Tabela from "../Tabela/Tabela";
 import { OperacoesContext } from "../../context/OperacoesProvider";
 import { UsuariosContext } from "../../context/UsuariosProvider";
 import { ChavesContext } from "../../context/ChavesProvider";
 import { CargosContext } from "../../context/CargosProvider";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Dashboard = ({props}) => {
     const {operacoes} = useContext(OperacoesContext);
@@ -19,7 +18,7 @@ const Dashboard = ({props}) => {
     var operacoesAtivas = operacoes.filter(function( operacao ) {
         return operacao.situacao === 1;
     });
-    let history = useHistory();
+
     return(
         <body>        
             <div className="conteudo">

@@ -1,8 +1,6 @@
 import React,{useContext} from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./Header.css";
-import { faBriefcase, faHome, faKey, faBuilding, faClipboardList } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {Container, Navbar} from "react-bootstrap"
 import logo from "../../images/Logo.svg";
 import { LoginContext } from "../../context/LoginProvider";
@@ -13,7 +11,7 @@ import {Button} from 'react-bootstrap'
 function Header(){
     let location = useLocation();
     let mostrar = location.pathname.match("login") ;
-    const {token, setToken} = useContext(LoginContext);
+    const {token} = useContext(LoginContext);
     const {imobiliarias} = useContext(ImobiliariasContext);
 
     let history = useHistory();
