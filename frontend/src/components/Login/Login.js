@@ -39,7 +39,8 @@ const Login = (props) => {
         }
       })
       .catch((err) => {
-        setError(err.response.data.message);
+          event.target.firstChild.classList.remove("d-none");
+          setError(err.response.data.message);
       });
     }
 
@@ -57,10 +58,11 @@ const Login = (props) => {
                         <Col xs={5}>
                             <div id="divFundoLogin" className="p-5" style={{backgroundColor: 'rgba(255, 255, 255, 0.9)'}}>
                                 <h4 className="text-center text-primary">LOGIN</h4>
-                                <Alert variant={"danger"}>
-                                    {error}
-                                </Alert>
+
                                 <Form onSubmit={handleSubmit}>
+                                  <Alert id="alertaErroLogin" variant={"danger d-none"}>
+                                      {error}
+                                  </Alert>
                                     <Row>
                                         <Col xs={12} className="mb-5">
                                             <Form.Group as={Col} controlId="formEmail">
