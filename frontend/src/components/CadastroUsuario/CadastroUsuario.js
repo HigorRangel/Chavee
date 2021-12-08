@@ -1,9 +1,7 @@
 import React,{useContext} from "react";
 import "./CadastroUsuario.css";
-import {Form, Button, Container, Row, Col, Table, InputGroup, Alert} from "react-bootstrap"
+import {Form, Button, Container, Row, Col, Alert} from "react-bootstrap"
 import PainelSombreado from "../PainelSombreado/PainelSombreado"
-import SecaoSombreada from "../SecaoSombreada/SecaoSombreada"
-import Tabela from "../Tabela/Tabela"
 import { UsuariosContext } from "../../context/UsuariosProvider";
 import { CargosContext } from "../../context/CargosProvider";
 import { useHistory, useParams } from 'react-router-dom';

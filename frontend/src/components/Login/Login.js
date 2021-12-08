@@ -1,7 +1,7 @@
 import React from "react";
 import "./Login.css";
 import {Form, Button, Container, Row, Col, Alert} from "react-bootstrap";
-import logoGrande from  "../../images/logo-grande.svg"
+import logoGrande from  "../../images/logo-grande.svg";
 import axios from "axios";
 import { useContext } from "react";
 import { LoginContext } from "../../context/LoginProvider";

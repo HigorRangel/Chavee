@@ -122,7 +122,7 @@ const UsuariosProvider = (props) =>{
                             }
                         })
                         .then((response) => {
-                            if(event.target.usuarioID.value == token.id){
+                            if(event.target.usuarioID.value === token.id){
                                 sessionStorage.removeItem('token')
                                 history.push("/login");
                             }else{

@@ -1,8 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { faBriefcase, faHome, faKey, faBuilding, faClipboardList } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {Form, Button, Container, Row, Col, Table} from "react-bootstrap"
+import { Container, Row, Col, Table} from "react-bootstrap"
 import "./Tabela.css"
 import BotaoDelete from "../BotaoDelete/BotaoDelete";
 import BotaoUpdate from "../BotaoUpdate/BotaoUpdate";
@@ -44,7 +41,7 @@ function Tabela({colunas, registros, funcaoDelete, linkUpdate, linkOperacao}){
                                                      {Object.values(registro).map((dado,index) =>{
                                                          return(
                                                             <td  style={{width: (colunas[index].proporcao).toString() + "%", textAlign:(colunas[index].alinhamento).toString()}}>{
-                                                                dado
+                                                                colunas[index].nome==="Situação" ? dado === 1 ? "ATIVO": "INATIVO" : dado
                                                             }</td>
                                                          )
                                                         
