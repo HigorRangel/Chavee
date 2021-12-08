@@ -7,7 +7,7 @@ import {Container, Navbar} from "react-bootstrap"
 import logo from "../../images/Logo.svg";
 import { LoginContext } from "../../context/LoginProvider";
 import { ImobiliariasContext } from "../../context/ImobiliariasProvider";
-import { useHistory } from "react-router-dom";
+import { useHistory,Link } from "react-router-dom";
 import {Button} from 'react-bootstrap'
 
 function Header(){
@@ -35,7 +35,8 @@ function Header(){
                 (<div onLoad={VerifyLoggedIn()}>
                 <Navbar bg="primary" variant="dark">
                     <Container fluid>
-                    <Navbar.Brand href="#home">
+                    <Link to="/dashboard">
+                    <Navbar.Brand>
                         <img
                         alt=""
                         src={logo}
@@ -44,6 +45,7 @@ function Header(){
                         className="d-inline-block align-top"
                         />{' '}
                     </Navbar.Brand>
+                    </Link>
                     <div>
                         <h3 className="text-white mb-0">{imobiliariaAtual ? imobiliariaAtual.nome_fantasia : null}</h3>
                     </div>
