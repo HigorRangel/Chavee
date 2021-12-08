@@ -14,9 +14,9 @@ function HeaderLateral(){
     return(
         
             mostrar === null && 
-                <div className="header bg-white" id="header">
-                    <nav>
-                        <ul className={"list-unstyled"}>
+                <div className="header bg-white d-flex flex-column align-items-center" id="header">
+                    <nav className="d-flex flex-column align-items-center justify-content-center">
+                        <ul className={"list-unstyled d-flex flex-column align-items-center  justify-content-center"}>
                             <li className={"mb-5 botao"}><NavLink to="/dashboard" exact><FontAwesomeIcon icon={faHome} color={"#0B2149"}  size="lg"/></NavLink></li>
                             <li className={"mb-5 botao"}><NavLink to="/chaves" exact><FontAwesomeIcon icon={faKey} color={"#0B2149"}  size="lg"/></NavLink></li>
                             <li className={"mb-5 botao"}><NavLink to="/operacoes" exact><FontAwesomeIcon icon={faClipboardList} color={"#0B2149"}  size="lg"/></NavLink></li>
