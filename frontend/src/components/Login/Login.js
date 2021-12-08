@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.css";
-import {Form, Button, Container, Row, Col, Image} from "react-bootstrap";
+import {Form, Button, Container, Row, Col, Alert} from "react-bootstrap";
 import logoGrande from  "../../images/logo-grande.svg"
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import axios from "axios";
@@ -56,8 +56,11 @@ const Login = (props) => {
                         
                         
                         <Col xs={5}>
-                            <div id="divFundoLogin" className="p-5" style={{backgroundColor: 'rgba(255, 255, 255, 0.6)'}}>
+                            <div id="divFundoLogin" className="p-5" style={{backgroundColor: 'rgba(255, 255, 255, 0.9)'}}>
                                 <h4 className="text-center text-primary">LOGIN</h4>
+                                <Alert variant={"danger"}>
+                                    {error}
+                                </Alert>
                                 <Form onSubmit={handleSubmit}>
                                     <Row>
                                         <Col xs={12} className="mb-5">
@@ -69,6 +72,7 @@ const Login = (props) => {
                                             <Form.Group as={Col} controlId="formSenha">
                                                 <Form.Control  className="campoLogin" type="password" value={senha} placeholder="Senha" required maxLength = "16" onChange={(e) => setSenha(e.target.value)}/>
                                             </Form.Group>
+
                                         </Col>
                                         <Col xs={12} className="d-flex justify-content-end">
                                                 <Button className="mt-5 px-5" variant="primary" type="submit">Login</Button>

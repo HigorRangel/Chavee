@@ -1,6 +1,6 @@
 import React,{useContext} from "react";
 import "./CadastroImobiliaria.css";
-import {Form, Button, Container, Row, Col} from "react-bootstrap"
+import {Form, Button, Container, Row, Col, Alert} from "react-bootstrap"
 import PainelSombreado from "../PainelSombreado/PainelSombreado"
 import { ImobiliariasContext } from "../../context/ImobiliariasProvider";
 import { useParams,useHistory } from "react-router-dom";
@@ -37,6 +37,9 @@ const CadastroImobiliaria = ({props}) => {
             <Row>
                 <Col>
                 <Form onSubmit={updateScenario? onImobiliariaUpdate : onImobiliariaSubmit }className="mx-3  mb-5">
+                    <Alert className="d-none" id="alertaErro" variant={"danger"}></Alert>
+
+
                     <Row className="mb-3">
                         <Col xs={4}>
                             <Form.Group as={Col} controlId="formNomeFantasia">
@@ -52,19 +55,12 @@ const CadastroImobiliaria = ({props}) => {
                             </Form.Group>
                         </Col>
 
-                        <Col xs={2}>
+                        <Col xs={4}>
                             <Form.Group as={Col} controlId="formCNPJ">
                             <Form.Label>CNPJ</Form.Label>
                             <Form.Control type="text" placeholder="Ex: 96.770.573/0001-73" defaultValue={imobiliaria ? imobiliaria.cnpj : null} required maxLength = "14"/>
                             </Form.Group>
                         </Col>
-                        
-                        {updateScenario? null: <Col xs={2}>
-                            <Form.Group as={Col} controlId="formCargoAdministrador">
-                            <Form.Label>Cargo Administrador</Form.Label>
-                            <Form.Control type="text" placeholder="Ex: Gerente de Vendas" required maxLength = "25"/>
-                            </Form.Group>
-                        </Col>}
                         
                     </Row>
                     
@@ -110,24 +106,34 @@ const CadastroImobiliaria = ({props}) => {
                                 </Row>
 
                                 <Row className="mb-3">
-                                    <Col xs={2}>
-                                        <Form.Group as={Col} controlId="formSenha">
-                                        <Form.Label>Senha</Form.Label>
-                                        <Form.Control required type="password"/>
-                                        </Form.Group>
+                                    {updateScenario? null: <Col xs={2}>
+                                    <Form.Group as={Col} controlId="formCargoAdministrador">
+                                    <Form.Label>Cargo Administrador</Form.Label>
+                                    <Form.Control type="text" placeholder="Ex: Gerente de Vendas" required maxLength = "25"/>
+                                    </Form.Group>
+                                    </Col>}
+                                    <Col>
+                                        <Row>
+                                            <Col xs={3}>
+                                                <Form.Group as={Col} controlId="formSenha">
+                                                <Form.Label>Senha</Form.Label>
+                                                <Form.Control required type="password"/>
+                                                </Form.Group>
+                                            </Col>
+                                            
+                                            <Col xs={3}>
+                                                <Form.Group as={Col} controlId="formConfirmaSenha">
+                                                <Form.Label>Confirme a Senha</Form.Label>
+                                                <Form.Control required type="password"/>
+                                                </Form.Group>
+                                            </Col>
+                                            <Form.Text className="text-muted">
+                                                A senha deve conter pelo menos 8 caracteres alfanuméricos.
+                                            </Form.Text>
+                        
+                                        </Row>
                                     </Col>
-                                    
-                                    <Col xs={2}>
-                                        <Form.Group as={Col} controlId="formConfirmaSenha">
-                                        <Form.Label>Confirme a Senha</Form.Label>
-                                        <Form.Control required type="password"/>
-                                        </Form.Group>
-                                    </Col>
-                    
-                                    <Form.Text className="text-muted">
-                                        A senha deve conter pelo menos 8 caracteres alfanuméricos.
-                                    </Form.Text>
-            
+
                                 </Row>
                         </div>
                         
@@ -136,8 +142,8 @@ const CadastroImobiliaria = ({props}) => {
                     
 
                     <Row className="justify-content-end me-0">
-                        <Col xs={1}>
-                            <Button variant="primary" type="submit">{updateScenario? "Atualizar": "Cadastrar"}</Button>
+                        <Col xs={3} className="d-flex justify-content-end me-0 p-0">
+                            <Button className="px-5" variant="primary" type="submit">{updateScenario? "Atualizar": "Cadastrar"}</Button>
                         </Col>
                     </Row>
                 </Form>
