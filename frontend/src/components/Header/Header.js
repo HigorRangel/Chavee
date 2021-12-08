@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {Container, Navbar} from "react-bootstrap"
 import logo from "../../images/Logo.svg";
 import { LoginContext } from "../../context/LoginProvider";
+import { ImobiliariasContext } from "../../context/ImobiliariasProvider";
 import { useHistory } from "react-router-dom";
 import {Button} from 'react-bootstrap'
 
@@ -13,12 +14,16 @@ function Header(){
     let location = useLocation();
     let mostrar = location.pathname.match("login") ;
     const {token, setToken} = useContext(LoginContext);
+    const {imobiliarias} = useContext(ImobiliariasContext);
+
     let history = useHistory();
     var nome_usuario = "";
 
     if(token){
         nome_usuario = token.primeiro_nome + " " + token.ultimo_nome
     }
+
+    let imobiliariaAtual = imobiliarias.find(imobiliaria => imobiliaria.id === token.id_imobiliaria);
 
     const VerifyLoggedIn = () =>{
         if(!token){
@@ -39,6 +44,9 @@ function Header(){
                         className="d-inline-block align-top"
                         />{' '}
                     </Navbar.Brand>
+                    <div>
+                        <h3 className="text-white mb-0">{imobiliariaAtual ? imobiliariaAtual.nome_fantasia : null}</h3>
+                    </div>
                     <div className="d-flex flex-column align-items-end">
                         <p className="text-white mb-0 fw-bold">{nome_usuario.toUpperCase()}</p>
                         <Button onClick={ () => {

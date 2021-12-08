@@ -6,7 +6,7 @@ import {LoginContext} from './LoginProvider';
 export const ImobiliariasContext = React.createContext();
 
 const ImobiliariasProvider = (props) =>{
-    const [imobiliarias,setImobiliarias] = useState({});
+    const [imobiliarias,setImobiliarias] = useState([]);
     const {token} = useContext(LoginContext);
 
     let history = useHistory();
