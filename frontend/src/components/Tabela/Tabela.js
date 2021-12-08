@@ -44,7 +44,7 @@ function Tabela({colunas, registros, funcaoDelete, linkUpdate, linkOperacao}){
                                                      {Object.values(registro).map((dado,index) =>{
                                                          return(
                                                             <td  style={{width: (colunas[index].proporcao).toString() + "%", textAlign:(colunas[index].alinhamento).toString()}}>{
-                                                                dado
+                                                                colunas[index].nome==="Situação" ? dado === 1 ? "ATIVO": "INATIVO" : dado
                                                             }</td>
                                                          )
                                                         
