@@ -10,24 +10,33 @@ import {Button} from 'react-bootstrap'
 
 function Header(){
     let location = useLocation();
-    let mostrar = location.pathname.match("login") ;
+    let paginaAtual = location.pathname
+    let mostrar = paginaAtual.match("login") || paginaAtual.match("imobiliarias") || paginaAtual.match("cadastro-imobiliaria");
+
+    if(paginaAtual.match("cadastro-imobiliaria[/][0-9]+")){
+        mostrar = null;
+    }
+
     const {token} = useContext(LoginContext);
     const {imobiliarias} = useContext(ImobiliariasContext);
 
     let history = useHistory();
     var nome_usuario = "";
+    let imobiliariaAtual = null;
 
     if(token){
         nome_usuario = token.primeiro_nome + " " + token.ultimo_nome
+        imobiliariaAtual = imobiliarias.find(imobiliaria => imobiliaria.id === token.id_imobiliaria)
     }
 
-    let imobiliariaAtual = imobiliarias.find(imobiliaria => imobiliaria.id === token.id_imobiliaria);
+
 
     const VerifyLoggedIn = () =>{
         if(!token){
             history.push("/login");
         };
     }
+    
         return(
             mostrar === null && 
                 (<div onLoad={VerifyLoggedIn()}>

@@ -12,17 +12,15 @@ const ImobiliariasProvider = (props) =>{
     let history = useHistory();
 
     useEffect(()=>{
-        if(token){
             const intervalId = setInterval(() => {
             axios
                 .get('http://localhost:3003/imobiliaria/listar')
                 .then((response) =>{
                     setImobiliarias(response.data);
                 })
-            },1000)
+            },500)
 
             return () => clearInterval(intervalId);
-        }
     });
     
     const onImobiliariaSubmit = (event) =>{
@@ -46,7 +44,6 @@ const ImobiliariasProvider = (props) =>{
                     axios
                         .post('http://localhost:3003/imobiliaria/inserir',object)
                         .then((response) => {
-                            console.log(response.data);
                             history.push("/imobiliarias");
                         });
                 }else{
@@ -89,7 +86,6 @@ const ImobiliariasProvider = (props) =>{
                 }
             })
             .then((response) => {
-                console.log(response.data);
                 history.push("/dashboard");
             });
     }

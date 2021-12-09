@@ -9,8 +9,13 @@ import { LoginContext } from "../../context/LoginProvider";
 function HeaderLateral(){
     const {token} = useContext(LoginContext);
     let location = useLocation();
-    let mostrar = location.pathname.match("login") ;
+    let paginaAtual = location.pathname;
+    let mostrar = paginaAtual.match("login") || paginaAtual.match("imobiliarias") || paginaAtual.match("cadastro-imobiliaria");
     
+    if(paginaAtual.match("cadastro-imobiliaria[/][0-9]+")){
+        mostrar = null;
+    }
+
     return(
         
             mostrar === null && 
@@ -23,8 +28,6 @@ function HeaderLateral(){
                             <li className={"mb-5 botao"}><NavLink to="/cargos" exact><FontAwesomeIcon icon={faBriefcase} color={"#0B2149"}  size="lg"/></NavLink></li>
                             <li className={"mb-5 botao"}><NavLink to="/usuarios" exact><FontAwesomeIcon icon={faUsers} color={"#0B2149"}  size="lg"/></NavLink></li>
                             <li className={"botao"}><NavLink to={token?"/cadastro-imobiliaria/"+ token.id_imobiliaria: "/cadastro-imobiliaria/"} exact><FontAwesomeIcon icon={faBuilding} color={"#0B2149"}  size="lg"/></NavLink></li>
-                            {/* <li><NavLink to="/cadastro-cargos" exact><FontAwesomeIcon icon={faHome} color={"#0B2149"}  size="lg"/></NavLink></li>
-                            <li><NavLink to="/cadastro-usuario" exact><FontAwesomeIcon icon={faHome} color={"#0B2149"}  size="lg"/></NavLink></li> */}
                         </ul>
                     </nav>
                 </div> 

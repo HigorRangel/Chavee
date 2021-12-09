@@ -19,19 +19,19 @@ function App() {
   return (
     <BrowserRouter>
       <LoginProvider>
-        <UsuariosProvider>
-          <CargosProvider>
-            <ChavesProvider>
-              <ImobiliariasProvider>
-                <OperacoesProvider>
-                  <Header/>
-                  <HeaderLateral/>
-                  <Routes/>
-                </OperacoesProvider>
-              </ImobiliariasProvider>
-            </ChavesProvider>
-          </CargosProvider>
-        </UsuariosProvider>
+        <ImobiliariasProvider>
+          <UsuariosProvider>
+            <CargosProvider>
+              <ChavesProvider>
+                  <OperacoesProvider>
+                    <Header/>
+                    <HeaderLateral/>
+                    <Routes/>
+                  </OperacoesProvider>
+              </ChavesProvider>
+            </CargosProvider>
+          </UsuariosProvider>
+        </ImobiliariasProvider>
       </LoginProvider>
     </BrowserRouter>
   );

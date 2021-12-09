@@ -21,7 +21,7 @@ const Imobiliarias = ({props}) => {
                     {nome: "Data de Cadastro", proporcao: 10, alinhamento: "center"},
                     {nome: "Ações", proporcao: 10, alinhamento: "center"}
                 ]}
-                registros={imobiliarias} linkUpdate={"/cadastro-imobiliaria/"}></Tabela>
+                registros={imobiliarias}></Tabela>
             </div>
         </body>
     )

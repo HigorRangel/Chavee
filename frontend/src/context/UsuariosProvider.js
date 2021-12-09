@@ -72,7 +72,6 @@ const UsuariosProvider = (props) =>{
                             }
                         })
                         .then((response) => {
-                            console.log(response.data);
                             history.push("/usuarios");
                         });
                 }else{
