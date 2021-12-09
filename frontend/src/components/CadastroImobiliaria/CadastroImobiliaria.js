@@ -44,21 +44,21 @@ const CadastroImobiliaria = ({props}) => {
                         <Col xs={4}>
                             <Form.Group as={Col} controlId="formNomeFantasia">
                             <Form.Label>Nome Fantasia</Form.Label>
-                            <Form.Control type="text" placeholder="Ex: Imobiliária Brasil" defaultValue={imobiliaria ? imobiliaria.nome_fantasia : null}  required maxLength = "30"/>
+                            <Form.Control type="text" placeholder="Ex: Imobiliária Brasil" defaultValue={imobiliaria ? imobiliaria.nome_fantasia : null}  required maxLength = "50"/>
                             </Form.Group>
                         </Col>
                         
                         <Col xs={4}>
                             <Form.Group as={Col} controlId="formRazaoSocial">
                             <Form.Label>Razão Social</Form.Label>
-                            <Form.Control type="text" placeholder="Ex: Imobiliária Brasil LTDA." defaultValue={imobiliaria ? imobiliaria.razao_social : null} required maxLength = "40"/>
+                            <Form.Control type="text" placeholder="Ex: Imobiliária Brasil LTDA." defaultValue={imobiliaria ? imobiliaria.razao_social : null} required maxLength = "50"/>
                             </Form.Group>
                         </Col>
 
                         <Col xs={4}>
                             <Form.Group as={Col} controlId="formCNPJ">
                             <Form.Label>CNPJ</Form.Label>
-                            <Form.Control type="text" placeholder="Ex: 96.770.573/0001-73" defaultValue={imobiliaria ? imobiliaria.cnpj : null} required maxLength = "14"/>
+                            <Form.Control type="text" placeholder="Ex: 96770573000173" defaultValue={imobiliaria ? imobiliaria.cnpj : null} required maxLength = "14"/>
                             </Form.Group>
                         </Col>
                         
@@ -79,7 +79,7 @@ const CadastroImobiliaria = ({props}) => {
                                     <Col xs={3}>
                                         <Form.Group as={Col} controlId="formNomeDoMeio">
                                         <Form.Label>Nome(s) do Meio</Form.Label>
-                                        <Form.Control type="text" placeholder="Ex: da Silva" maxLength = "25"/>
+                                        <Form.Control type="text" placeholder="Ex: da Silva" maxLength = "50"/>
                                         </Form.Group>
                                     </Col>
             
@@ -100,7 +100,7 @@ const CadastroImobiliaria = ({props}) => {
                                     <Col xs={2}>
                                         <Form.Group as={Col} controlId="formContato">
                                         <Form.Label>Contato</Form.Label>
-                                        <Form.Control required type="text" placeholder="Ex: (19) 9 9000-0000" maxLength = "11"/>
+                                        <Form.Control required type="text" placeholder="Ex: 19990000000" maxLength = "11"/>
                                         </Form.Group>
                                     </Col>
                                 </Row>
@@ -109,7 +109,7 @@ const CadastroImobiliaria = ({props}) => {
                                     {updateScenario? null: <Col xs={2}>
                                     <Form.Group as={Col} controlId="formCargoAdministrador">
                                     <Form.Label>Cargo Administrador</Form.Label>
-                                    <Form.Control type="text" placeholder="Ex: Gerente de Vendas" required maxLength = "25"/>
+                                    <Form.Control type="text" placeholder="Ex: Gerente de Vendas" required maxLength = "50"/>
                                     </Form.Group>
                                     </Col>}
                                     <Col>

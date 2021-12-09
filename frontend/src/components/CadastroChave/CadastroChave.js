@@ -133,7 +133,7 @@ const CadastroChave = ({props}) => {
                                             <Col xs={3}>
                                                 <Form.Group controlId="formContatoCad">
                                                     <Form.Label>Contato</Form.Label>
-                                                    <Form.Control required  defaultValue={updateScenario?chave.contato:null} type="number" placeholder="Ex: 19995965421" maxLength = "50"></Form.Control>
+                                                    <Form.Control required  defaultValue={updateScenario?chave.contato:null} type="text" placeholder="Ex: 19995965421" maxLength = "11"></Form.Control>
                                                 </Form.Group>
                                             </Col>
                                         </Row>

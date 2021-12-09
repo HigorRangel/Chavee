@@ -36,7 +36,7 @@ const Dashboard = ({props}) => {
                                 }></PainelSombreado>
                             </Link>
                         </Col>
-                        <Col xs={3} className="pe-0">
+                        <Col xs={3} className="ps-2">
                             <Link to="/operacoes" className="text-decoration-none">
 
                                 <PainelSombreado elemento={
@@ -47,7 +47,7 @@ const Dashboard = ({props}) => {
                                 }></PainelSombreado>
                             </Link>
                         </Col>
-                        <Col xs={3} className="">
+                        <Col xs={3} className="ps-2">
                             <Link to="/chaves" className="text-decoration-none">
                                 <PainelSombreado elemento={
                                     <div className="py-2">
@@ -70,7 +70,7 @@ const Dashboard = ({props}) => {
                                 }></PainelSombreado>
                             </Link>
                         </Col>
-                        <Col xs={3} className="">
+                        <Col xs={3} className="ps-2">
                         <Link to="/cargos" className="text-decoration-none">
                                 <PainelSombreado elemento={
                                     <div className="py-2">
