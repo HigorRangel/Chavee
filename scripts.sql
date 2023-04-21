@@ -52,6 +52,7 @@ create table chave(
     situacao int not null default 1,
     finalidade int not null,
     categoria_imovel int not null,
+    cod_interno varchar(10),
     cod_imovel varchar(10),
     observacao varchar(256),
     usuario int not null,
@@ -95,3 +96,6 @@ BEGIN
     values (primeiroNome, nomesMeio, ultimoNome, email, md5(senha), contato, 1, (SELECT max(id) from cargo));
 END $$
 DELIMITER ; 
+
+
+INSERT INTO usuario VALUES (default, 'Usuário', null, 'Teste', 'user@teste.com', md5('123456'), '19995756699', 1, 4);
